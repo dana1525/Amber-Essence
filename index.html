@@ -1,21 +1,14 @@
-<!DOCTYPE html> <!--ultima versiunea de html, adica 5 by default-->
-<!-- daca nu avem doctype, se poate afisa diferit in diferite browsere,
- interpretare "specifica" a codului-->
+<!DOCTYPE html>
 
-<html lang="ro"> <!-- avem nevoie de limba pentru ca sa nu se indexeze gresit chestiile de crawler -->
-    <!-- crawler = program care navigheaza site-ul dupa cuvintele cheie, trimis de un motor de cautare
-     indexare = tabel deja facut cu intrari ordonate dupa rank-->
+<html lang="ro">
     <head>
         <title>Amber & Essence</title>
         <!-- taguri meta -> utile pentru program, nu pentru utilizator-->
-         <meta charset="UTF-8" /> <!-- tagul meta nu are continut; charset = setul de caractere, pentru caractere speciale
-         UTF-8 encoding-ul, traducere in cod binar, care in cazul de fata lucreaza cu cate un octet-->
-        <!-- codificarea în memorie a caracterelor-->
+         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="keywords" content="cocktail, rețete de cocktailuri, mixologie, alcool, mocktail, tehnici de preparare, bar acasă, sfaturi mixologie"><!--majoritatea motoarelor de căutare ignoră keywords -->
-        <meta name="description" content="Cocktailuri. Retete. Mixologie"><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării
-        descrierea paginii este limitata, daca e mai lung, atunci se afiseaza doar inceputul si apoi ... -->
-        <meta name="author" content="Amber & Essence">  <!-- autorul/autoarea paginii, se pune de fapt beneficiarul /clientul (/firma) --> 
+        <meta name="description" content="Cocktailuri. Retete. Mixologie"><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+        <meta name="author" content="Amber & Essence">  <!-- autorul/autoarea paginii --> 
 
         <link rel="icon" type="image/png" href="./resurse/imagini/favicon/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="./resurse/imagini/favicon/favicon.svg" />
@@ -43,32 +36,32 @@
                     <li><a href="#Home">Acasă</a>
                         <ul>
                             <li>
-                                <a href="#subsectiune1">Subsectiune 1</a>
+                                <a href="#subsectiune1.1">Subsectiune 1</a>
                             </li>
                             <li>
-                                <a href="#subsectiune2">Subsectiune 2</a>
+                                <a href="#subsectiune1.2">Subsectiune 2</a>
                             </li>
                         </ul>
-                    </li>  <!-- # este pentru id -->
+                    </li>
                     <li><a href="#Retete">Retete de cocktailuri</a>
                         <ul>
                             <li>
-                                <a href="#subsectiune1">Cocktailuri clasice</a>
+                                <a href="#subsectiune2.1">Cocktailuri clasice</a>
                             </li>
                             <li>
-                                <a href="#subsectiune2">Cocktailuri răcoritoare </a>
+                                <a href="#subsectiune2.2">Cocktailuri răcoritoare </a>
                             </li>
                             <li>
-                                <a href="#subsectiune3">Cocktailuri îndulcite </a>
+                                <a href="#subsectiune2.3">Cocktailuri îndulcite </a>
                             </li>
                             <li>
-                                <a href="#subsectiune4">Cocktailuri fără alcool (mocktailuri)</a>
+                                <a href="#subsectiune2.4">Cocktailuri fără alcool (mocktailuri)</a>
                             </li>
                             <li>
-                                <a href="#subsectiune5">Cocktailuri pe bază de lichior</a>
+                                <a href="#subsectiune2.5">Cocktailuri pe bază de lichior</a>
                             </li>
                             <li>
-                                <a href="#subsectiune6">Cocktailuri pentru petreceri</a>
+                                <a href="#subsectiune2.6">Cocktailuri pentru petreceri</a>
                             </li>
                         </ul>
                     </li> 
@@ -79,17 +72,25 @@
         </header>
 
         <main>
-            <!--   DE MODIFICAT  -->
-            <picture>
-                <source srcset="./resurse/imagini/image1.jpg" media="(max-width:500px)"/>
-                <source srcset="./resurse/imagini/image1.jpg" media="(max-width:1000px)"/>
-                <img src="./resurse/imagini/bauturi/image1.jpg" alt="text"/>
+            <figure>
+                <picture>
+                    <source srcset="./resurse/imagini/image3.jpg" media="(max-width:600px)"/>
+                    <source srcset="./resurse/imagini/image2.jpg" media="(max-width:1024px)"/>
+                    <img src="./resurse/imagini/image1.jpg" alt="Cocktailurile perfecte" usemap="#image-map"/>
+                </picture>
                 <figcaption>Cocktailuri rafinate, perfecte pentru orice ocazie.</figcaption>
-              </picture>           
+            </figure>    
+            
+            <!-- harta de imagini -->
+            <map
+            name="image-map">
+            <area target="_self" alt="Q&amp;A" title="Q&amp;A" href="#Intrebari" coords="169,64,293,196" shape="rect">
+            <area target="_self" alt="Retete" title="Retete" href="#Retete" coords="244,219,47" shape="circle">
+            </map>
 
             <section id="Home"> <!-- tipuri diferite pentru crawler -->
                 <h2>Descoperă magia mixologiei cu Amber & Essence</h2> <!-- titlu de capitol -->
-                <section id="subsectiune1">
+                <section id="subsectiune1.1">
                     <h3>Titlu subsectiune 1</h3>
                     <p>Ești pregătit să explorezi arta mixologiei și să descoperi <b>cocktailul</b> perfect pentru orice ocazie? Fie că visezi la un clasic atemporal precum un <i>Martini</i> rafinat sau vrei să te aventurezi în lumea aromelor exotice, <cite>Amber & Essence</cite> este ghidul tău în această călătorie savuroasă!<br/>
                     Încearcă <b>rețetele noastre</b>! De la cocktailuri fresh și fructate la băuturi sofisticate și intense, avem mixul potrivit pentru fiecare gust.<br/>
@@ -99,7 +100,7 @@
                     <p>Fiecare cocktail spune o poveste - tu alegi ce experiență vrei să trăiești azi.</p>
                 </section>
 
-                <section id="subsectiune2">
+                <section id="subsectiune1.2">
                     <h3>Titlu subsectiune 2</h3>
                 </section>
             </section>
@@ -107,8 +108,9 @@
             <section id="Retete">
                 <h2>Rețete de cocktailuri</h2>
                 <p>Dulci, fresh, răcoritoare, cu sau fără alcool, acum ai la dispoziție o multitudine de rețete, ca să alegi exact ce îți place!</p>
-                <section id="subsectiune1">
+                <section id="subsectiune2.1">
                     <h3>Cocktailuri clasice</h3>
+                    <embed src="./resurse/pdf-uri/istoria_cocktailurilor_clasice.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="500px" height="400px" />
                     <ul>
                         <li>
                             Martini<br/>
@@ -124,7 +126,7 @@
                     </ul>
                 </section>
                 
-                <section id="subsectiune2">
+                <section id="subsectiune2.2">
                     <h3>Cocktailuri răcoritoare</h3>
                     <ul>
                         <li>
@@ -141,7 +143,7 @@
                     </ul>
                 </section>
 
-                <section id="subsectiune3">
+                <section id="subsectiune2.3">
                     <h3>Cocktailuri îndulcite</h3>
                     <ul>
                         <li>
@@ -157,15 +159,15 @@
                     </ul>
                 </section>
 
-                <section id="subsectiune4">
+                <section id="subsectiune2.4">
                     <h3>Cocktailuri fără alcool (mocktailuri)</h3>
                 </section>
 
-                <section id="subsectiune5">
+                <section id="subsectiune2.5">
                     <h3>Cocktailuri pe bază de lichior</h3>
                 </section>
 
-                <section id="subsectiune6">
+                <section id="subsectiune2.6">
                     <h3>Cocktailuri pentru petreceri</h3>
                 </section>
             </section>
@@ -173,7 +175,7 @@
             <section id="Tips&Tricks">
                 <h2>Tips & Tricks</h2>
                 
-                <section id="subsectiune1">
+                <section id="subsectiune3.1">
                     <h3>Tehnici de bază în mixologie</h3>
                     <p>
                         <b>Mixologia</b> nu este doar despre amestecarea băuturilor, ci despre echilibru și precizie.<br/> O regulă de aur este proporția <b>2:1:1</b> - două părți tare (alcool), o parte acru (suc de citrice) și o parte dulce (sirop sau lichior). <br/> Un alt aspect important este modul de amestecare:
@@ -185,7 +187,7 @@
                     </ul> 
                                        
                 </section>
-                <section id="subsectiune2">
+                <section id="subsectiune3.2">
                     <h3>Echipamente esențiale pentru un bar acasă</h3>
                     <p>
                         Nu ai nevoie de un bar profesionist pentru a prepara cocktailuri perfecte! Un kit de bază ar trebui să includă:
@@ -199,7 +201,7 @@
                         <li><b>Mojar și pistil</b> - pentru cocktailuri ce includ ierburi sau fructe zdrobite (ex: Mojito).</li>
                     </ul>
                 </section>
-                <section id="subsectiune3">
+                <section id="subsectiune3.3">
                     <h3>Sfaturi pentru combinarea aromelor</h3>
                     <p>
                         O combinație reușită în mixologie se bazează pe echilibrul dintre dulce, acru, amar și sărat. Câteva <b>trucuri</b> pentru a obține cele mai bune arome:
@@ -239,7 +241,7 @@
                 <p>Un paragraf</p>
             </section>
 
-            <section id="intrebari">
+            <section id="Intrebari">
                 <h2>Întrebări frecvente</h2>
 
                 <details>
@@ -258,8 +260,20 @@
                 </details>
             
                 <details>
-                    <summary>Ce tip de gheață este cel mai potrivit pentru cocktailuri?</summary>
-                    <p>Gheața mare și clară este ideală pentru băuturile servite direct (Old Fashioned), cuburile standard sunt bune pentru majoritatea cocktailurilor, iar gheața zdrobită se folosește în Mojito sau Mint Julep.</p>
+                    <summary>Cum știu cât de tare este băutura pe care vreau să o prepar?</summary>
+                    <p>Formula pentru tăria alcoolică este următoarea:</p>
+                    <math>
+                        <mrow>
+                            <mi>ABV (Alcohol by Volume)</mi> <mo>=</mo>
+                            <mfrac>
+                                <mrow>
+                                    <mi>Volum alcool</mi> <mo>&#x22C5;</mo> <mi>Concentrație%</mi>
+                                </mrow>
+                                <mi>Volum total</mi>
+                            </mfrac>
+                            <mo>&#x22C5;</mo> <mn>100</mn>
+                        </mrow>
+                    </math>
                 </details>
             
                 <details>
@@ -278,10 +292,11 @@
             <br/><br/>
             <a href="#">Link sus</a><br/><br/>
             <address>
-                Telefon: <a href="tel:+40123456789">+40 123 456 789</a><br/>
+                Telefon: <a href="tel:+40987654321">+40 987 654 321</a><br/>
                 Adresă: <a href="https://maps.app.goo.gl/JNbeX4KF535fyK7y5" target="_blank">Str. Florilor, nr. 14, București</a><br/>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.884114404336!2d26.097006411462328!3d44.4355393013615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFacultatea%20de%20Matematic%C4%83%20%C8%99i%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1741197195113!5m2!1sro!2sro" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br/>
                 Email: <a href="mailto:contact@exemplu.com">contact@exemplu.com</a><br/>
-                Chat: <a href="https://wa.me/40123456789" target="_blank">WhatsApp</a>
+                Chat: <a href="https://wa.me/40987654321" target="_blank">WhatsApp</a>
             </address>
             <small>
                 &copy; DANFELLOWScoffeecocktails<br/>
@@ -290,19 +305,3 @@
         </footer>
     </body>
 </html>
-
-
-<!--  
- PENTRU DATA VIITOARE PENTRU TASK-UL 8 SA CAUTAM IMAGINI DESPRE TEMA SITE-ULUI -->
-
-
- <!-- daca vreau sa fie doar clipul video /embed/ 
-  pentru link de tipul download doar punem atributul
-  
-  in summary e textul vizibil
-  
-  
-  
-  Tema: 
-  etapa 1: 8, (10), (12), (13), (14), (15), b1, b2, b3, b4
-  task design rudimentar: a, b, c, d, e-->
