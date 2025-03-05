@@ -1,0 +1,308 @@
+<!DOCTYPE html> <!--ultima versiunea de html, adica 5 by default-->
+<!-- daca nu avem doctype, se poate afisa diferit in diferite browsere,
+ interpretare "specifica" a codului-->
+
+<html lang="ro"> <!-- avem nevoie de limba pentru ca sa nu se indexeze gresit chestiile de crawler -->
+    <!-- crawler = program care navigheaza site-ul dupa cuvintele cheie, trimis de un motor de cautare
+     indexare = tabel deja facut cu intrari ordonate dupa rank-->
+    <head>
+        <title>Amber & Essence</title>
+        <!-- taguri meta -> utile pentru program, nu pentru utilizator-->
+         <meta charset="UTF-8" /> <!-- tagul meta nu are continut; charset = setul de caractere, pentru caractere speciale
+         UTF-8 encoding-ul, traducere in cod binar, care in cazul de fata lucreaza cu cate un octet-->
+        <!-- codificarea în memorie a caracterelor-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="cocktail, rețete de cocktailuri, mixologie, alcool, mocktail, tehnici de preparare, bar acasă, sfaturi mixologie"><!--majoritatea motoarelor de căutare ignoră keywords -->
+        <meta name="description" content="Cocktailuri. Retete. Mixologie"><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării
+        descrierea paginii este limitata, daca e mai lung, atunci se afiseaza doar inceputul si apoi ... -->
+        <meta name="author" content="Amber & Essence">  <!-- autorul/autoarea paginii, se pune de fapt beneficiarul /clientul (/firma) --> 
+
+        <link rel="icon" type="image/png" href="./resurse/imagini/favicon/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="./resurse/imagini/favicon/favicon.svg" />
+        <link rel="shortcut icon" href="./resurse/imagini/favicon/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="./resurse/imagini/favicon/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Amber&Essence" />
+        <link rel="manifest" href="./resurse/imagini/favicon/site.webmanifest" />
+        <!-- <link rel="stylesheet" type="text/css" href="./resurse/css/general.css" /> -->
+        <style>
+           /*p{
+                color:brown;
+                font-style: italic;
+            }
+            p{
+                color:darkred;
+            }*/
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h1 style="color:coral">Amber & Essence</h1>
+            <nav>
+                <ul>
+                    <li><a href="#Home">Acasă</a>
+                        <ul>
+                            <li>
+                                <a href="#subsectiune1">Subsectiune 1</a>
+                            </li>
+                            <li>
+                                <a href="#subsectiune2">Subsectiune 2</a>
+                            </li>
+                        </ul>
+                    </li>  <!-- # este pentru id -->
+                    <li><a href="#Retete">Retete de cocktailuri</a>
+                        <ul>
+                            <li>
+                                <a href="#subsectiune1">Cocktailuri clasice</a>
+                            </li>
+                            <li>
+                                <a href="#subsectiune2">Cocktailuri răcoritoare </a>
+                            </li>
+                            <li>
+                                <a href="#subsectiune3">Cocktailuri îndulcite </a>
+                            </li>
+                            <li>
+                                <a href="#subsectiune4">Cocktailuri fără alcool (mocktailuri)</a>
+                            </li>
+                            <li>
+                                <a href="#subsectiune5">Cocktailuri pe bază de lichior</a>
+                            </li>
+                            <li>
+                                <a href="#subsectiune6">Cocktailuri pentru petreceri</a>
+                            </li>
+                        </ul>
+                    </li> 
+                    <li><a href="#Tips&Tricks">Tips & Tricks</a></li> 
+                    <li><a href="#Chestionar">Alege cocktailul potrivit</a></li> 
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!--   DE MODIFICAT  -->
+            <picture>
+                <source srcset="./resurse/imagini/image1.jpg" media="(max-width:500px)"/>
+                <source srcset="./resurse/imagini/image1.jpg" media="(max-width:1000px)"/>
+                <img src="./resurse/imagini/bauturi/image1.jpg" alt="text"/>
+                <figcaption>Cocktailuri rafinate, perfecte pentru orice ocazie.</figcaption>
+              </picture>           
+
+            <section id="Home"> <!-- tipuri diferite pentru crawler -->
+                <h2>Descoperă magia mixologiei cu Amber & Essence</h2> <!-- titlu de capitol -->
+                <section id="subsectiune1">
+                    <h3>Titlu subsectiune 1</h3>
+                    <p>Ești pregătit să explorezi arta mixologiei și să descoperi <b>cocktailul</b> perfect pentru orice ocazie? Fie că visezi la un clasic atemporal precum un <i>Martini</i> rafinat sau vrei să te aventurezi în lumea aromelor exotice, <cite>Amber & Essence</cite> este ghidul tău în această călătorie savuroasă!<br/>
+                    Încearcă <b>rețetele noastre</b>! De la cocktailuri fresh și fructate la băuturi sofisticate și intense, avem mixul potrivit pentru fiecare gust.<br/>
+                    Devino expert în <b>mixologie</b>! Descoperă sfaturi de mixologie, tehnici de preparare și secretele unui cocktail perfect echilibrat.<br/>
+                    Alege <b>băutura ideală</b>! Nu știi ce să bei? Folosește ghidul nostru interactiv și lasă-te surprins de mixul perfect pentru tine.</p>
+                        
+                    <p>Fiecare cocktail spune o poveste - tu alegi ce experiență vrei să trăiești azi.</p>
+                </section>
+
+                <section id="subsectiune2">
+                    <h3>Titlu subsectiune 2</h3>
+                </section>
+            </section>
+
+            <section id="Retete">
+                <h2>Rețete de cocktailuri</h2>
+                <p>Dulci, fresh, răcoritoare, cu sau fără alcool, acum ai la dispoziție o multitudine de rețete, ca să alegi exact ce îți place!</p>
+                <section id="subsectiune1">
+                    <h3>Cocktailuri clasice</h3>
+                    <ul>
+                        <li>
+                            Martini<br/>
+                            <img src="./resurse/imagini/bauturi/martini.jpg" alt="martini"><br/>
+                            Descriere<br/>Un cocktail elegant și clasic, simplu, dar sofisticat, preferat de cunoscători.<br/><br/>Ingrediente (~120 ml /o porție)<br/>ml oz shot<br/>60 ml /2 oz /1.2 shots gin sau vodcă<br/>10 ml /0.34 oz /0.2 shot vermut dry<br/>1 măslină verde sau o coajă de lămâie (pentru decor)<br/>Gheață (pentru răcire, nu se servește în pahar)<br/><br/>
+                            Mod de preparare<br/>Umple un pahar de mixare cu gheață.<br/>
+                            Toarnă ginul (sau vodca) și vermutul peste gheață.<br/>
+                            Amestecă ușor cu o lingură timp de 20-30 secunde.<br/>
+                            Strecoară lichidul într-un pahar de Martini rece.<br/>
+                            Decorează cu o măslină verde sau o coajă de lămâie.<br/>
+                            Servește rece și savurează!<br/>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="subsectiune2">
+                    <h3>Cocktailuri răcoritoare</h3>
+                    <ul>
+                        <li>
+                            Mojito<br/>
+                            <img src="./resurse/imagini/bauturi/mojito.jpg" alt="mojito"><br/>
+                            Descriere<br/>Cocktail răcoritor cubanez cu rom, lime și mentă, perfect pentru zilele călduroase.<br/><br/>Ingrediente (~350 ml /o porție)<br/>ml oz shot<br/>50 ml /1.7 oz /1 shot rom alb<br/>25 ml /0.85 oz /0.5 shot suc de lime proaspăt<br/>10 ml /0.34 oz /0.2 shot sirop de zahăr (2/3 zahar, 1/3 apă)<br/>6-8 frunze de mentă<br/>apă minerală (completare)<br/>1/2 lime<br/><br/>
+                            Mod de preparare<br/>Pune bucățile de lime și siropul de zahăr într-un pahar.<br/>
+                            Adaugă frunzele de mentă și presează-le ușor cu un muddler.<br/>
+                            Toarnă romul și umple paharul pe jumătate cu gheață zdrobită.<br/>
+                            Amestecă ușor cu o lingură lungă.<br/>
+                            Completează cu apă minerală și mai adaugă gheață.<br/>
+                            Decorează cu o crenguță de mentă și servește cu un pai.<br/>
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="subsectiune3">
+                    <h3>Cocktailuri îndulcite</h3>
+                    <ul>
+                        <li>
+                            Piña Colada<br/>
+                            <img src="./resurse/imagini/bauturi/pinacolada3.jpg" alt="pina_colada"><br/>
+                            Descriere<br/>Un cocktail tropical cremos cu rom, ananas și cocos, ideal pentru vacanțe exotice.<br/><br/>Ingrediente (~350 ml /o porție)<br/>ml oz shot<br/>50 ml /1.7 oz /1 shot rom alb<br/>100 ml /3.4 oz /2 shots suc de ananas<br/>50 ml /1.7 oz /1 shot cremă de cocos<br/>10 ml /0.34 oz /0.2 shot lapte condensat (opțional, pentru extra dulceață)<br/>1 cană gheață zdrobită<br/>felie de ananas și cireșă maraschino (pentru decor)<br/><br/>
+                            Mod de preparare<br/>Pune romul, sucul de ananas și crema de cocos într-un blender.<br/>
+                            Adaugă gheața zdrobită și, opțional, laptele condensat.<br/>
+                            Amestecă bine până obții o textură cremoasă și fină.<br/>
+                            Toarnă într-un pahar înalt și decorează cu o felie de ananas și o cireșă.<br/>
+                            Servește cu un pai și bucură-te de gustul tropical! 
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="subsectiune4">
+                    <h3>Cocktailuri fără alcool (mocktailuri)</h3>
+                </section>
+
+                <section id="subsectiune5">
+                    <h3>Cocktailuri pe bază de lichior</h3>
+                </section>
+
+                <section id="subsectiune6">
+                    <h3>Cocktailuri pentru petreceri</h3>
+                </section>
+            </section>
+
+            <section id="Tips&Tricks">
+                <h2>Tips & Tricks</h2>
+                
+                <section id="subsectiune1">
+                    <h3>Tehnici de bază în mixologie</h3>
+                    <p>
+                        <b>Mixologia</b> nu este doar despre amestecarea băuturilor, ci despre echilibru și precizie.<br/> O regulă de aur este proporția <b>2:1:1</b> - două părți tare (alcool), o parte acru (suc de citrice) și o parte dulce (sirop sau lichior). <br/> Un alt aspect important este modul de amestecare:
+                    </p>
+                    <ul>
+                        <li><b>Agitare</b> (shaking) - pentru băuturile cu sucuri, lactate sau ouă, se folosește un shaker pentru a obține o textură aerată și bine amestecată.</li>
+                        <li><b>Amestecare</b> (stirring) - băuturile doar cu alcool (ex: Martini, Manhattan) se amestecă delicat cu o lingură de bar pentru a păstra claritatea și consistența fină.</li>
+                        <li><b>Construcție</b> (building) - cocktailurile simple, precum Gin Tonic, se fac direct în pahar, turnând ingredientele în ordine specifică.</li>
+                    </ul> 
+                                       
+                </section>
+                <section id="subsectiune2">
+                    <h3>Echipamente esențiale pentru un bar acasă</h3>
+                    <p>
+                        Nu ai nevoie de un bar profesionist pentru a prepara cocktailuri perfecte! Un kit de bază ar trebui să includă:
+                    </p>
+                    <ul>
+                        <li><b>Shaker</b> - ideal pentru băuturile care trebuie bine amestecate și răcite.</li>
+                        <li><b>Jigger</b> - un instrument de măsurare esențial pentru a menține proporțiile corecte.</li>
+                        <li><b>Lingură de bar</b> - utilă pentru amestecare și stratificare.</li>
+                        <li><b>Strecurătoare</b> (strainer) - pentru a separa gheața și ingredientele solide după agitare.</li>
+                        <li><b>Presa pentru citrice</b> - nimic nu se compară cu sucul proaspăt de lime sau lămâie.</li>
+                        <li><b>Mojar și pistil</b> - pentru cocktailuri ce includ ierburi sau fructe zdrobite (ex: Mojito).</li>
+                    </ul>
+                </section>
+                <section id="subsectiune3">
+                    <h3>Sfaturi pentru combinarea aromelor</h3>
+                    <p>
+                        O combinație reușită în mixologie se bazează pe echilibrul dintre dulce, acru, amar și sărat. Câteva <b>trucuri</b> pentru a obține cele mai bune arome:
+                    </p>
+                    <ul>
+                        <li>Folosește ingrediente proaspete - citricele, ierburile și siropurile făcute în casă îmbunătățesc enorm gustul.</li>
+                        <li>Echilibrează dulceața și aciditatea - prea mult sirop poate face băutura greoaie, în timp ce prea mult suc de citrice poate fi copleșitor.</li>
+                        <li>Experimentează cu ingrediente neobișnuite - un strop de sare poate intensifica aromele, iar condimentele precum piperul negru sau scorțișoara adaugă un plus de complexitate.</li>
+                        <li>Testează pairing-uri inspirate - ghimbirul și romul, lavanda și ginul, vanilia și bourbonul sunt doar câteva exemple de combinații reușite.</li>
+                        <li>Mixologia este o artă, dar și o știință - experimentează și creează cocktailuri memorabile!</li>
+                    </ul>
+
+                    <p>Vrei chiar mai multe informații în mixologie? Vizitează următorul site
+                    <a href="https://www.diffordsguide.com/" target="_blank">Difford's Guide</a>
+                    </p> <!--link extern-->
+                    <p>Sau descarcă ghidul nostru chiar de 
+                        <a href="./resurse/pdf-uri/ghid_mixologie.pdf" download="ghid_mixologie.pdf">aici</a>
+                    </p> <!--link de tip download-->
+
+                </section>
+
+                <div class="container-iframe">
+                    <div class="taburi-iframe">
+                    <a href="https://www.youtube.com/embed/WgNCohTp7p4" target="ifr-video">A Beginner's Guide to Mixing Drinks</a><br/>
+                    <a href="https://www.youtube.com/embed/PS5TFPwSOmg" target="ifr-video" >Ice & Dilution: This is Important! </a><br/>
+                    </div>
+    
+                
+                    <iframe name="ifr-video" width="560" height="315" src="https://www.youtube.com/embed/WgNCohTp7p4" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+            </section>
+
+            <section id="Chestionar">
+                <h2>Alege cocktailul potrivit</h2>
+                <p>Un paragraf</p>
+            </section>
+
+            <section id="intrebari">
+                <h2>Întrebări frecvente</h2>
+
+                <details>
+                    <summary>Ce este mixologia?</summary>
+                    <p>Mixologia este arta și știința preparării cocktailurilor. Un mixolog creează și experimentează cu rețete de băuturi, combinând arome și tehnici pentru a obține un echilibru perfect</p>
+                </details>
+
+                <details>
+                    <summary>Ce diferență este între un barman și un mixolog?</summary>
+                    <p>Un barman servește și prepară băuturi, în timp ce un mixolog creează rețete noi, explorează combinații de arome și perfecționează tehnici avansate de preparare.</p>
+                </details>
+
+                <details>
+                    <summary>Care sunt cele mai simple cocktailuri pe care le pot face acasă?</summary>
+                    <p>Câteva opțiuni ușor de realizat sunt Gin Tonic, Cuba Libre, Screwdriver și Spritz.</p>
+                </details>
+            
+                <details>
+                    <summary>Ce tip de gheață este cel mai potrivit pentru cocktailuri?</summary>
+                    <p>Gheața mare și clară este ideală pentru băuturile servite direct (Old Fashioned), cuburile standard sunt bune pentru majoritatea cocktailurilor, iar gheața zdrobită se folosește în Mojito sau Mint Julep.</p>
+                </details>
+            
+                <details>
+                    <summary>Pot folosi miere sau alt îndulcitor în loc de zahăr?</summary>
+                    <p>Da! Mierea, siropul de agave sau siropul de arțar sunt alternative excelente, dar trebuie diluate puțin înainte de utilizare pentru a se amesteca bine.</p>
+                </details>
+            
+                <details>
+                    <summary>Care este regula de bază pentru echilibrul aromelor într-un cocktail?</summary>
+                    <p>O regulă clasică este proporția 2:1:1 - două părți alcool, o parte aciditate (zeamă de citrice) și o parte îndulcitor (sirop, lichior).</p>
+                        </details>
+            </section>
+        </main>
+
+        <footer>
+            <br/><br/>
+            <a href="#">Link sus</a><br/><br/>
+            <address>
+                Telefon: <a href="tel:+40123456789">+40 123 456 789</a><br/>
+                Adresă: <a href="https://maps.app.goo.gl/JNbeX4KF535fyK7y5" target="_blank">Str. Florilor, nr. 14, București</a><br/>
+                Email: <a href="mailto:contact@exemplu.com">contact@exemplu.com</a><br/>
+                Chat: <a href="https://wa.me/40123456789" target="_blank">WhatsApp</a>
+            </address>
+            <small>
+                &copy; DANFELLOWScoffeecocktails<br/>
+                <time datetime="2025-02-24">24 februarie 2025</time>
+            </small>
+        </footer>
+    </body>
+</html>
+
+
+<!--  
+ PENTRU DATA VIITOARE PENTRU TASK-UL 8 SA CAUTAM IMAGINI DESPRE TEMA SITE-ULUI -->
+
+
+ <!-- daca vreau sa fie doar clipul video /embed/ 
+  pentru link de tipul download doar punem atributul
+  
+  in summary e textul vizibil
+  
+  
+  
+  Tema: 
+  etapa 1: 8, (10), (12), (13), (14), (15), b1, b2, b3, b4
+  task design rudimentar: a, b, c, d, e-->
