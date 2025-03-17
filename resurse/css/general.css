@@ -1,4 +1,64 @@
-p{
+/* p{
     color:blueviolet;
     border:2px solid #a15e49;
+} */
+
+header{
+  background-color: #ddac70;
+  padding: 20px;
+  border-bottom: 4px solid #ba9971;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+body{
+    --spatiere-pagina: 80px;
+}
+
+main{
+    margin: 0;
+    padding-right: var(--spatiere-pagina);
+    padding-left: var(--spatiere-pagina);
+}
+
+@media screen and (max-width: 1200px){
+    body{
+        --spatiere-pagina: 50px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body{
+        --spatiere-pagina: 20px;
+    }
+}
+
+
+
+/* :root {
+  --page-padding-large: 10vw;
+  --page-padding-medium: 5vw;
+  --page-padding-small: 2vw;
+}
+
+body {
+  margin: 0;
+  padding-left: var(--page-padding-large);
+  padding-right: var(--page-padding-large);
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding-left: var(--page-padding-medium);
+    padding-right: var(--page-padding-medium);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-left: var(--page-padding-small);
+    padding-right: var(--page-padding-small);
+  }
+}
+ */
