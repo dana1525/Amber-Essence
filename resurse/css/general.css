@@ -1,64 +1,385 @@
-/* p{
-    color:blueviolet;
-    border:2px solid #a15e49;
-} */
+html{
+  font-size: 100%;
+  transition: font-size 0.3s ease-in-out;
+}
 
-header{
-  background-color: #ddac70;
+header, footer, #grid-pagina{
   padding: 20px;
-  border-bottom: 4px solid #ba9971;
-  border-radius: 10px 10px 0 0;
+  border-radius: 20px 20px 0 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+header{
+  margin: 20px;
+  background-color: var(--color4);
+  border-bottom: 4px solid var(--color2);
+}
+
+footer{
+  margin: 20px;
+}
+
 body{
-    --spatiere-pagina: 80px;
+  --spatiere-pagina: 5rem;
+  --color1: #eec5a2;
+  --color2: #B13F0E;
+  --color3: #B3740E;
+  --color4: #CE6910;
+  --color5: #5A1107;
+  --color6: #95730C;
+  --color7: #B47B4A;
+  --color8: white;
+  --color9: rgba(250, 235, 215, 0.904);
+  --distanta-grid: 1rem;
+  box-sizing: border-box;
+  overflow-x: auto;
+  background-color: var(--color6);
+}
+
+#grid-pagina{
+  display: grid;
+  grid-template-areas: "zona1     zona1      zona1      zona1"
+                       "zona2     zona2      zona3      zona3"
+                       "zona2     zona2      zona4      zona4"
+                       "zona5     zona6      zona6      zona7"
+                       "zona8     zona8      zona8      zona8";
+  /* previne overflow-ul pe orizontala */
+  grid-gap: var(--distanta-grid);
+  overflow-x: hidden;
+  background-color: var(--color9);
 }
 
 main{
-    margin: 0;
-    padding-right: var(--spatiere-pagina);
-    padding-left: var(--spatiere-pagina);
+  margin: 0;
+  padding-right: var(--spatiere-pagina);
+  padding-left: var(--spatiere-pagina);
+}
+
+h1{
+  font-family: "Croissant One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#zona1{
+  grid-area: zona1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  background-color: var(--color7);
+}
+
+#zona1 h1 {
+  flex: 1 1 40%;
+  font-size: 2rem;
+  max-width: 600px;
+}
+
+#zona1 figure {
+  flex: 1 1 50%;
+  max-width: 600px;
+}
+
+#zona1 img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#zona1 figcaption {
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+#zona2 {
+  grid-area: zona2;
+  background-color: var(--color8);
+}
+
+#zona3 {
+  grid-area:zona3;
+  background-color: var(--color8);
+}
+
+#zona4 {
+  grid-area: zona4;
+  background-color: var(--color8);
+}
+
+#zona5 {
+  grid-area: zona5;
+  background-color: var(--color8);
+}
+
+#zona6 {
+  grid-area: zona6;
+  background-color: var(--color8);
+}
+
+#zona7 {
+  grid-area: zona7;
+  background-color: var(--color8);
+}
+
+#zona8 {
+  grid-area: zona8;
+  background-color: var(--color7);
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cocktail-box {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  display: inline-block; /* pentru a le aranja orizontal */
+  margin: 10px;
+}
+
+.box1 {
+  background-image: url('../imagini/bauturi/negroni.jpg');
+}
+
+.box2 {
+  background-image: url('../imagini/bauturi/other_cocktail3.jpg');
+}
+
+.box3 {
+  background-image: url('../imagini/bauturi/aperol.jpg');
+}
+
+.box4 {
+  background-image: url('../imagini/bauturi/other_cocktail.jpg');
+}
+
+.box5 {
+  background-image: url('../imagini/bauturi/caipirinha-4782694_1280.jpg');
+}
+
+figcaption {
+  text-align: center;
+}
+
+#grid-pagina section {
+  padding: 1.5em;
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+}
+
+img, video {
+  width: 100%;
+  max-width: 500px;
+  min-width: 200px;
+  height: auto;
+  display: block;
+}
+
+caption {
+  caption-side: bottom;
+  font-style: italic;
+  padding-top: 10px;
+  color: #555;
+}
+
+table {
+  border-collapse: separate;
+  width: 100%;
+  min-width: 600px;
+}
+
+.table-container {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #ccc;
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+tbody td:nth-child(even) {
+  background-color: var(--color1);
+}
+
+tbody td:nth-child(odd) {
+  background-color: var(--color9);
+}
+
+tbody tr:hover td {
+  background-color: var(--color4);
+  transition: background-color 0.2s ease-in-out;
+}
+
+tbody tr:hover td:hover {
+  background-color: var(--color2);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.container-iframe {
+  width: 60%;
+  max-width: 500px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+.container-iframe>iframe {
+  width: 100%;
+  border-radius: 10px;
+  border: 5px solid var(--color4);
+}
+
+.taburi-iframe {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.taburi-iframe>a {
+  width: 100px;
+  height: 40px;
+  display: flex;
+  border: 2px solid var(--color2);
+  background-color: var(--color4);
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--color5);
+  text-align: center;
+  font-size: 12px;
+  border-radius: 10px;
+  padding: 10px 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.taburi-iframe>a:hover {
+  background-color: var(--color8);
+  color: var(--color2);
+}
+
+#ifr-video{
+  border-radius: 10px;
+  border: 5px solid var(--color4);
+}
+
+mi {
+  font-weight: bold;
+  color: purple;
+}
+
+mn {
+  font-style: italic;
+  color: var(--color5);
+}
+
+mi:first-of-type {
+  color: rgb(23, 23, 91);
+  font-weight: bold;
+}
+
+#zona7 .text-icon i {
+  animation: pulse 2s linear;
+  animation-iteration-count: 3;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media screen and (max-width: 1200px){
+    html{
+        font-size: 14px;
+    }
     body{
         --spatiere-pagina: 50px;
+    }
+    #grid-pagina{
+      grid-template-rows: auto;
+      grid-template-areas: "zona1     zona1"
+                           "zona2     zona2"
+                           "zona3     zona3"
+                           "zona4     zona5"
+                           "zona6     zona7"
+                           "zona8     zona8";
+      --distanta-grid: 0.2em;
+      overflow-x: auto;
+      max-width: 100%;
+    }
+    img, video{
+      max-width: 400px;
+      min-width: 180px;
     }
 }
 
 @media screen and (max-width: 800px) {
+    html{
+        font-size: 12px;
+    }
     body{
         --spatiere-pagina: 20px;
+    }
+    #grid-pagina{
+      display: block;
+      --distanta-grid: 0.1em;
+    }
+    img, video{
+      max-width: 90%;
+      min-width: 180px;
     }
 }
 
 
-
-/* :root {
-  --page-padding-large: 10vw;
-  --page-padding-medium: 5vw;
-  --page-padding-small: 2vw;
-}
-
-body {
-  margin: 0;
-  padding-left: var(--page-padding-large);
-  padding-right: var(--page-padding-large);
+#link-top{
+  position: fixed;
+  bottom: 0.3em;
+  opacity: 0.5;
+  right: 0.3em;
+  width: 3rem;
   box-sizing: border-box;
-}
+  text-decoration: none;
+  height: 3rem;
 
-@media (max-width: 1024px) {
-  body {
-    padding-left: var(--page-padding-medium);
-    padding-right: var(--page-padding-medium);
-  }
-}
+  /* border: 5px solid var(--color7);
+  border-top-color: var(--color5); */
+  border-radius: 50% 50% 0 0;
+  background: var(--color9);
+  transition: background-color 0.5s ease, opacity 0.5s ease;
 
-@media (max-width: 768px) {
-  body {
-    padding-left: var(--page-padding-small);
-    padding-right: var(--page-padding-small);
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
- */
+#link-top:hover{
+  opacity: 1;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 1);
+}
+#sageata{
+  height: auto;
+  width: auto;
+
+  display: block;
+  color: var(--color5);
+  font-size: 2rem;
+  transition: transform 0.3s ease;
+}
+#sageata:hover{
+  transform: scale(1.5);
+}

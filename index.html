@@ -9,6 +9,8 @@
         <meta name="keywords" content="cocktail, rețete de cocktailuri, mixologie, alcool, mocktail, tehnici de preparare, bar acasă, sfaturi mixologie"><!--majoritatea motoarelor de căutare ignoră keywords -->
         <meta name="description" content="Cocktailuri. Retete. Mixologie"><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
         <meta name="author" content="Amber & Essence">  <!-- autorul/autoarea paginii --> 
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
 
         <link rel="icon" type="image/png" href="./resurse/imagini/favicon/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="./resurse/imagini/favicon/favicon.svg" />
@@ -16,7 +18,10 @@
         <link rel="apple-touch-icon" sizes="180x180" href="./resurse/imagini/favicon/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Amber&Essence" />
         <link rel="manifest" href="./resurse/imagini/favicon/site.webmanifest" />
-        <disable link rel="stylesheet" type="text/css" href="./resurse/css/general.css" />
+        <link rel="stylesheet" type="text/css" href="./resurse/css/general.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bytesized&family=Croissant+One&display=swap" rel="stylesheet">
         <style>
            /*p{
                 color:brown;
@@ -30,98 +35,206 @@
 
     <body>
         <header>
-            <h1 style="color:#2e251a">Amber & Essence</h1>
+            <h1 style="color:#000000">Amber & Essence</h1>
             <nav>
                 <ul>
-                    <li><a href="#Home">Acasă</a>
-                        <ul>
-                            <li>
-                                <a href="#misiunea_noastra">Misiunea noastră</a>
-                            </li>
-                            <li>
-                                <a href="#calatoria_ta">Călătoria ta alături de noi</a>
-                            </li>
-                        </ul>
-                    </li>
+                    <li><a href="#zona1">Acasă</a></li>
                     <li><a href="#Retete">Retete de cocktailuri</a>
                         <ul>
-                            <li>
-                                <a href="#clasice">Cocktailuri clasice</a>
-                            </li>
-                            <li>
-                                <a href="#racoritoare">Cocktailuri răcoritoare </a>
-                            </li>
-                            <li>
-                                <a href="#indulcite">Cocktailuri îndulcite </a>
-                            </li>
-                            <li>
-                                <a href="#mocktailuri">Cocktailuri fără alcool (mocktailuri)</a>
-                            </li>
-                            <li>
-                                <a href="#lichior">Cocktailuri pe bază de lichior</a>
-                            </li>
-                            <li>
-                                <a href="#petreceri">Cocktailuri pentru petreceri</a>
-                            </li>
+                            <li><a href="#clasice">Cocktailuri clasice</a></li>
+                            <li><a href="#racoritoare">Cocktailuri răcoritoare </a></li>
+                            <li><a href="#indulcite">Cocktailuri îndulcite </a></li>
+                            <li><a href="#mocktailuri">Cocktailuri fără alcool (mocktailuri)</a></li>
+                            <li><a href="#lichior">Cocktailuri pe bază de lichior</a></li>
+                            <li><a href="#petreceri">Cocktailuri pentru petreceri</a></li>
                         </ul>
                     </li> 
-                    <li><a href="#Tips&Tricks">Tips & Tricks</a></li>
+                    <li><a href="#Tips&Tricks">Tips & Tricks</a>
                         <ul>
-                            <li>
-                                <a href="#tehnici_de_baza">Tehnici de bază în mixologie</a>
-                            </li>
-                            <li>
-                                <a href="#echipamente_esentiale">Echipamente esențiale pentru un bar acasă</a>
-                            </li>
-                            <li>
-                                <a href="#greseli_frecvente">Greșeli frecvente în prepararea cocktailurilor</a>
-                            </li>
-                        </ul> 
+                            <li><a href="#tehnici_de_baza">Tehnici de bază în mixologie</a></li>
+                            <li><a href="#echipamente_esentiale">Echipamente esențiale pentru un bar acasă</a></li>
+                            <li><a href="#greseli_frecvente">Greșeli frecvente în prepararea cocktailurilor</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#Chestionar">Alege cocktailul potrivit</a></li> 
                 </ul>
             </nav>
         </header>
 
         <main>
-            <figure>
-                <picture>
-                    <source srcset="./resurse/imagini/image3.jpg" media="(max-width:600px)"/>
-                    <source srcset="./resurse/imagini/image2.jpg" media="(max-width:1024px)"/>
-                    <img src="./resurse/imagini/image1.jpg" alt="Cocktailurile perfecte" usemap="#image-map"/>
-                </picture>
-                <figcaption>Cocktailuri rafinate, perfecte pentru orice ocazie.</figcaption>
-            </figure>    
+            <div id="grid-pagina">
+                <section id="zona1">
+                    <h1>Descoperă magia mixologiei cu Amber & Essence</h1>                
+
+                    <figure>
+                        <picture>
+                            <source srcset="./resurse/imagini/image8.jpg" media="(max-width:600px)"/>
+                            <source srcset="./resurse/imagini/image7.jpg" media="(max-width:1024px)"/>
+                            <img src="./resurse/imagini/image6.jpg" alt="Cocktailurile perfecte" usemap="#image-map"/>
+                        </picture>
+                        <figcaption>Cocktailuri perfecte pentru orice ocazie</figcaption>
+                    </figure>   
+                </section>
+
+                <section id="zona2">
+                <h2>✨ Cocktailuri rafinate pentru momente speciale</h2>
+
+                    <h3>Misiunea noastră</h3> <p>Să inspirăm iubitorii de mixologie cu ingrediente autentice și tehnici inovatoare.</p>
+                    <h3>Călătoria ta</h3> <p>Să înveți tehnici de preparare, rețete delicioase și să îți surprinzi prietenii
+                        alături de noi!</p>
+
+                    <a href="#Retete" class="btn">👉 Descoperă rețetele</a>
+                </section>
+
+                <section id="zona3">
+                    <h2>Povestea din spatele paharului</h2>
+                    <h3>🍹 Băutura săptămânii: The Clover Club</h3>
+
+                    <p>Un clasic din Philadelphia, cu gin aromat, lămâie proaspătă și sirop de zmeură, învăluit într-o spumă fină de albuș.</br>
+                    
+                    💬 Fun fact: Preferat de gentlemenii din secolul trecut — acum perfect pentru tine!</br>                    
+                    👉 Încearcă-l și impresionează-ți prietenii!</p>
+                </section>
+
+                <section id="zona4">
+                    <h2>Știați că...</h2>
+                    <p>Cel mai vechi cocktail documentat este <i>Old Fashioned</i>, apărut în anii 1800 și considerat încă un simbol al mixologiei clasice!
+                    </p>
+                </section>
+
+                <section id="zona5">
+                    <div class="text-icon">
+                        <i class="fa-regular fa-newspaper"></i>
+                        <h2>Anunțuri Amber & Essence</h2>
+                    </div>
+                    <div class="anunt">
+                    <h3>📅 Eveniment special</h3>
+                    <p><strong>Atelier de Mixologie - Secretele unui cocktail perfect</strong></p>
+                    <p>Vino să descoperi tehnici inedite de preparare a cocktailurilor și să înveți de la cei mai buni mixologi! Locuri limitate - <strong>rezervă acum!</strong></p>
+                    </div>
+
+                    <div class="anunt">
+                    <h3>🎁 Surpriză pentru membrii comunității</h3>
+                    <p>În această lună, toți utilizatorii care împărtășesc rețetele lor preferate pot câștiga un set exclusiv de pahare pentru cocktailuri!</p>
+                    </div>
+                </section>
+                
+                <section id="zona6">
+                    <h2>Ingrediente și tipuri de alcool</h2>   
+                    <div class="table-container">               
+                    <table>
+                        <caption>Compatibilitatea ingredientelor cu tipuri de alcool</caption>
+                        <thead>
+                            <tr>
+                                <th>Ingrediente</th>
+                                <th>Vodka</th>
+                                <th>Rom</th>
+                                <th>Whisky</th>
+                                <th>Gin</th>
+                                <th>Tequila</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Lămâie</td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                        </tr>
+                        <tr>
+                            <td>Zahăr</td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>Apă tonică</td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>Sirop grenadine</td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">Mentă proaspătă</td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6"></td>
+                        </tr>
+                    </tfoot>
+                    </table>
+                    </div>
+                </section>
+
+                <section id="zona7">
+                    <div class="text-icon">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <h2> Statistici utilizator</h2>
+                    </div>
+                    <div class="statistici">
+                        <div class="stat">
+                            <h3>🍹 Cocktailuri încercate</h3>
+                            <!-- <p><strong>15</strong> rețete testate</p> -->
+                        </div>
+                
+                        <div class="stat">
+                            <h3>⭐ Rețeta favorită</h3>
+                        </div>
+                
+                        <div class="stat">
+                            <h3>🗓️ Ultima activitate</h3>
+                        </div>
+                
+                        <div class="stat">
+                            <h3>🏅 Nivel mixolog</h3>
+                        </div>
+                    </div>
+                
+                </section>
+
+                <section id="zona8">
+                    <div class="cocktail-box box1"></div>
+                    <div class="cocktail-box box2"></div>
+                    <div class="cocktail-box box3"></div>
+                    <div class="cocktail-box box4"></div>
+                    <div class="cocktail-box box5"></div>    
+                </section>
+                
+            </div>
+             
             
             <!-- harta de imagini -->
-            <map
-            name="image-map">
-            <area target="_self" alt="Q&amp;A" title="Q&amp;A" href="#Intrebari" coords="169,64,293,196" shape="rect">
-            <area target="_self" alt="Retete" title="Retete" href="#Retete" coords="244,219,47" shape="circle">
+            <map name="image-map">
+            <area target="_self" alt="Retete" title="Retete" href="#Retete" coords="674,430,760,207" shape="rect">
+            <area target="_self" alt="Cocktailul potrivit" title="Cocktailul potrivit" href="#Chestionar" coords="312,170,58" shape="circle">
             </map>
 
-            <section id="Home"> <!-- tipuri diferite pentru crawler -->
-                <h2>Descoperă magia mixologiei cu Amber & Essence</h2> <!-- titlu de capitol -->
-                <section id="misiunea_noastra">
-                    <h3>Misiunea noastră</h3>
-                    <p>Ești pregătit să explorezi arta mixologiei și să descoperi <b>cocktailul</b> perfect pentru orice ocazie? Fie că visezi la un clasic atemporal precum un <i>Martini</i> rafinat sau vrei să te aventurezi în lumea aromelor exotice, <b>Amber & Essence</b> este ghidul tău în această călătorie savuroasă!<br/></p>
-                </section>
-
-                <section id="calatoria_ta">
-                    <h3>Călătoria ta alături de noi</h3>
-                    <p>Încearcă <b>rețetele noastre</b>! De la cocktailuri fresh și fructate la băuturi sofisticate și intense, avem mixul potrivit pentru fiecare gust.<br/>
-                    Devino expert în <b>mixologie</b>! Descoperă sfaturi de mixologie, tehnici de preparare și secretele unui cocktail perfect echilibrat.<br/>
-                    Alege <b>băutura ideală</b>! Nu știi ce să bei? Folosește ghidul nostru interactiv și lasă-te surprins de mixul perfect pentru tine.</p>
-                            
-                    <p>Fiecare cocktail spune o poveste - tu alegi ce experiență vrei să trăiești azi.</p>
-                </section>
-            </section>
 
             <section id="Retete">
                 <h2>Rețete de cocktailuri</h2>
                 <p>Dulci, fresh, răcoritoare, cu sau fără alcool, acum ai la dispoziție o multitudine de rețete, ca să alegi exact ce îți place!</p>
                 <section id="clasice">
                     <h3>Cocktailuri clasice</h3>
-                    <embed src="./resurse/pdf-uri/istoria_cocktailurilor_clasice.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="500px" height="400px" />
+                    <embed src="./resurse/pdf-uri/istoria_cocktailurilor_clasice.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="500" height="400" />
                     <ul>
                         <li>
                             Martini<br/>
@@ -240,7 +353,6 @@
                     <a href="https://www.youtube.com/embed/PS5TFPwSOmg" target="ifr-video" >Ice & Dilution: This is Important! </a><br/>
                     </div>
     
-                
                     <iframe name="ifr-video" width="560" height="315" src="https://www.youtube.com/embed/WgNCohTp7p4" 
                     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
@@ -301,7 +413,7 @@
 
         <footer>
             <br/><br/>
-            <a href="#">Link sus</a><br/><br/>
+            <a href="#" id="link-top" title="Link sus"><div id="sageata">&#129081;</div></a>
             <address>
                 Telefon: <a href="tel:+40987654321">+40 987 654 321</a><br/>
                 Adresă: <a href="https://maps.app.goo.gl/JNbeX4KF535fyK7y5" target="_blank">Str. Florilor, nr. 14, București</a><br/>
