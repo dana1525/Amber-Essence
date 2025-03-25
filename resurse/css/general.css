@@ -21,12 +21,12 @@ footer{
 
 body{
   --spatiere-pagina: 5rem;
-  --color1: #eec5a2;
+  --color1: #EEC5A2;
   --color2: #B13F0E;
   --color3: #B3740E;
   --color4: #CE6910;
   --color5: #5A1107;
-  --color6: #95730C;
+  --color6: #E8A03C;
   --color7: #B47B4A;
   --color8: white;
   --color9: rgba(250, 235, 215, 0.904);
@@ -235,8 +235,8 @@ tbody tr:hover td:hover {
 
 .container-iframe>iframe {
   width: 100%;
-  border-radius: 10px;
-  border: 5px solid var(--color4);
+  border: 10px solid var(--color4);
+  border-style: inset;
 }
 
 .taburi-iframe {
@@ -247,8 +247,9 @@ tbody tr:hover td:hover {
 
 .taburi-iframe>a {
   width: 100px;
-  height: 40px;
+  height: 35px;
   display: flex;
+  margin: 8px;
   border: 2px solid var(--color2);
   background-color: var(--color4);
   align-items: center;
@@ -257,14 +258,27 @@ tbody tr:hover td:hover {
   color: var(--color5);
   text-align: center;
   font-size: 12px;
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
   padding: 10px 10px;
   transition: background-color 0.3s ease-in-out;
+  position: relative;
 }
 
 .taburi-iframe>a:hover {
   background-color: var(--color8);
   color: var(--color2);
+}
+
+.taburi-iframe a::after {
+  content: "";
+  width: 150px;
+  transform: translateY(-60px);
+  height: 10px;
+  position: absolute;
+  background-color: var(--color4);
+  bottom: -5px;
+  z-index: -1;
+  clip-path:polygon(0 0, 100% 0, 90% 100%, 10% 100%);
 }
 
 #ifr-video{
