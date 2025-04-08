@@ -1,0 +1,96 @@
+#grid-pagina {
+    display: block;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 15px;
+    column-gap: 5px;
+    padding: 10px;
+}
+
+@media print {
+
+img, video, iframe, embed, object, 
+figcaption, .taburi-iframe {
+    display: none;
+    }
+
+#link-top{
+    display: none;
+}
+
+a{
+    color: var(--color10);
+    text-decoration: none;
+}
+
+#absolut {
+    position: absolute;
+    display: block;
+    top: 0;
+    width:80%;
+    height:20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px var(--color10) dotted;
+    text-align: center;
+}
+
+h1{
+    page-break-after: always;
+    margin-top: 50%;
+    text-align: center;
+    margin-left: 1cm;
+    text-decoration: underline;
+    font-size: 2.5em;
+}
+
+ul.meniu {
+    display: none;
+}
+
+footer{
+    page-break-before: always;
+}
+
+#grid-pagina{
+    page-break-before: always;
+    display: block;
+    }
+
+    body::before {
+        content: "Mirescu Georgiana-Daniela";
+        display: block;
+        position: fixed;
+        font-size: 20px;
+        bottom: 0;
+        color: var(--color10);
+        right:0;
+        width: 100px;
+        height: 2cm;
+        border: double;
+        opacity: 0.65;
+        padding: 5px;
+    }
+
+#end{
+    page-break-before: always;
+}
+}
+
+@page {
+    size: A4 portrait;
+    margin-bottom: 2cm;
+    margin-top: 2cm;
+    counter-increment: page;
+        
+}
+@page:left{
+
+    margin-left: 2.5cm;
+    margin-right: 0.5cm;
+    border-radius: 20cm;
+}
+@page:right{
+
+    margin-right: 2.5cm;
+    margin-left: 0.5cm;
+}

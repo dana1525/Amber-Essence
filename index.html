@@ -18,8 +18,16 @@
         <link rel="apple-touch-icon" sizes="180x180" href="./resurse/imagini/favicon/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="Amber&Essence" />
         <link rel="manifest" href="./resurse/imagini/favicon/site.webmanifest" />
-        <link rel="stylesheet" type="text/css" href="./resurse/css/general.css" />
+        
         <link rel="stylesheet" type="text/css" href="./resurse/css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="./resurse/css/general.css" />
+
+        <link rel="stylesheet" href="./resurse/css/nav.css" type="text/css"/>
+        <link rel="stylesheet" href="./resurse/css/nav1000.css" type="text/css" media="screen and (max-width:1000px)"/>
+        <link rel="stylesheet" href="./resurse/css/nav700.css" type="text/css" media="screen and (max-width:700px)"/>
+
+        <link rel="stylesheet" href="./resurse/css/print.css" type="text/css"/>
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bytesized&family=Croissant+One&display=swap" rel="stylesheet">
@@ -37,30 +45,52 @@
     <body>
         <header>
             <h1 style="color:#000000">Amber & Essence</h1>
-            <nav>
-                <ul>
-                    <li><a href="#zona1">Acasă</a></li>
-                    <li><a href="#Retete">Retete de cocktailuri</a>
-                        <ul>
-                            <li><a href="#clasice">Cocktailuri clasice</a></li>
-                            <li><a href="#racoritoare">Cocktailuri răcoritoare </a></li>
-                            <li><a href="#indulcite">Cocktailuri îndulcite </a></li>
-                            <li><a href="#mocktailuri">Cocktailuri fără alcool (mocktailuri)</a></li>
-                            <li><a href="#lichior">Cocktailuri pe bază de lichior</a></li>
-                            <li><a href="#petreceri">Cocktailuri pentru petreceri</a></li>
-                        </ul>
-                    </li> 
-                    <li><a href="#Tips&Tricks">Tips & Tricks</a>
-                        <ul>
-                            <li><a href="#tehnici_de_baza">Tehnici de bază în mixologie</a></li>
-                            <li><a href="#echipamente_esentiale">Echipamente esențiale pentru un bar acasă</a></li>
-                            <li><a href="#greseli_frecvente">Greșeli frecvente în prepararea cocktailurilor</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#Chestionar">Alege cocktailul potrivit</a></li> 
-                </ul>
-            </nav>
         </header>
+
+        <nav>
+            <label id="hamburger" for="ch-menu">
+                <img src="resurse/imagini/Hamburger_icon_alb.png" alt="menu">
+                 <!-- <div id="container-hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                 </div> -->
+            </label>
+            <input id="ch-menu" type="checkbox">
+
+            <ul class="meniu">
+                <li><a href="#"><i class="fa-solid fa-house-user"></i> <span id="text-acasa">Acasă</span></a>
+                    <ul>
+                        <li><a href="#zona1">Bine ați venit</a></li>
+                        <li><a href="#zona2">Misiunea noastră</a></li>
+                        <li><a href="#zona3">O poveste pe zi</a></li>
+                        <li><a href="#zona4">Știați că</a></li>
+                        <li><a href="#zona5">Anunțuri</a></li>
+                        <li><a href="#zona6">Ingrediente și alcool</a></li>
+                        <li><a href="#zona7">Statistici utilizator</a></li>
+                    </ul>
+                </li>
+                <li><a href="#Retete">Rețete</a>
+                    <ul>
+                        <li><a href="http://www.google.com">Toate</a></li>
+                        <li><a href="#">Clasice</a></li>
+                        <li><a href="#">Răcoritoare </a></li>
+                        <li><a href="#">Îndulcite </a></li>
+                        <li><a href="#">Fără alcool</a></li>
+                        <li><a href="#">Pe bază de lichior</a></li>
+                        <li><a href="#">Pentru petreceri</a></li>
+                    </ul>
+                </li> 
+                <li><a href="#Tips&Tricks">Tips & Tricks</a>
+                    <ul>
+                        <li><a href="#tehnici_de_baza">Tehnici de bază</a></li>
+                        <li><a href="#echipamente_esentiale">Echipamente esențiale</a></li>
+                        <li><a href="#greseli_frecvente">Greșeli frecvente</a></li>
+                    </ul>
+                </li>
+                <li><a href="#Chestionar">Cocktailul potrivit</a></li> 
+            </ul>
+        </nav>
 
         <main>
             <div id="grid-pagina">
@@ -413,6 +443,7 @@
         </main>
 
         <footer>
+            <p id="absolut">Acesta este un proiect scolar!</p>
             <br/><br/>
             <a href="#" id="link-top" title="Link sus"><div id="sageata">&#129081;</div></a>
             <address>

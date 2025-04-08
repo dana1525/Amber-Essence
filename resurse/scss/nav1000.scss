@@ -1,0 +1,24 @@
+nav{
+    font-size: 1.2em;
+    --latime-buton: 155px;
+}
+
+ul.meniu {
+    ul{
+        width: var(--latime-buton);
+    }
+    li{
+        div{
+            .text-icon{
+                display: none;
+            }   
+            .imag-icon{
+                display: block;
+            } 
+        }    
+        width: var(--latime-buton);
+    }
+    #text-acasa {
+        display: none;
+    }
+}
