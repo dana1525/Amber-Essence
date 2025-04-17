@@ -1,0 +1,37 @@
+{
+  "name": "amber-n-essence",
+  "version": "1.0.0",
+  "description": "Cocktailuri. Retete. Mixologie. Tot ce vrei să știi despre mixurile de băuturi!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dana1525/Amber-Essence.git"
+  },
+  "keywords": [
+    "cocktail",
+    "reteta",
+    "mixologie",
+    "alcool",
+    "mocktail",
+    "tehnici",
+    "preparare",
+    "bar",
+    "sfaturi"
+  ],
+  "author": "Daniela Mirescu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dana1525/Amber-Essence/issues"
+  },
+  "homepage": "https://github.com/dana1525/Amber-Essence#readme",
+  "dependencies": {
+    "-": "^0.0.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "g": "^2.0.1",
+    "nodemon": "^3.1.9"
+  }
+}

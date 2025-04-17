@@ -405,3 +405,43 @@ mi:first-of-type {
 #sageata:hover{
   transform: scale(1.5);
 }
+
+
+/* stilizare linkuri */
+main a[href^="http"], footer a[href^="http"] {
+  background: none;
+  transition: none;
+}
+
+main a[href^="http"]:visited, footer a:visited {
+  color: var(--color5);
+}
+
+main a[href^="http"]::before, footer a[href^="http"]::before{
+  content: "⮳";
+  font-size: 1.5rem;
+  margin-right: 0.25em;
+  vertical-align: middle;
+}
+
+main a[href^="http"]:hover::before, footer a[href^="http"]:hover::before{
+  color: var(--color10);
+}
+
+main a[href^="http"], footer a[href^="http"]{
+  background: radial-gradient(var(--color4) 0%,
+  var(--color4) 40%, transparent 80%, transparent 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0% 0%;
+  transition: background-size 0.6s ease-in-out;
+}
+
+main a[href^="http"]:hover, footer a[href^="http"]:hover{
+  background-size: 100% 100%;
+}
+
+/* main.tips-n-tricks,  */
+main a[href^="http"]:active, footer a[href^="http"]:active{
+  border: 2px solid var(--color10);
+}

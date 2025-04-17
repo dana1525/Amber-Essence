@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="ro">
+    <head>
+        <title>Amber & Essence</title>
+        <meta name="keywords" content="cocktail, rețete cocktailuri, mixologie, alcool, mocktail, tehnici preparare, bar acasă, sfaturi mixologie">
+        <meta name="description" content="Cocktailuri. Retete. Mixologie. Tot ce vrei să știi despre mixurile de băuturi!">
+        
+        <%- include("../fragmente/head.ejs") %>
+        
+    </head>
+
+    <body>
+        <%- include("../fragmente/header.ejs")  %>
+
+        <main>
+            <div id="grid-pagina">
+                <section id="zona1">
+                    <h1>Descoperă magia mixologiei cu Amber & Essence</h1>                
+
+                    <figure>
+                        <picture>
+                            <source srcset="/resurse/imagini/image8.jpg" media="(max-width:600px)"/>
+                            <source srcset="/resurse/imagini/image7.jpg" media="(max-width:1024px)"/>
+                            <img src="/resurse/imagini/image6.jpg" alt="Cocktailurile perfecte" usemap="#image-map"/>
+                        </picture>
+                        <figcaption>Cocktailuri perfecte pentru orice ocazie</figcaption>
+                    </figure>   
+                </section>
+
+                <section id="zona2">
+                <h2>✨ Cocktailuri rafinate pentru momente speciale</h2>
+
+                    <h3>Misiunea noastră</h3> <p>Să inspirăm iubitorii de mixologie cu ingrediente autentice și tehnici inovatoare.</p>
+                    <h3>Călătoria ta</h3> <p>Să înveți tehnici de preparare, rețete delicioase și să îți surprinzi prietenii
+                        alături de noi!</p>
+
+                    <a href="#Retete" class="btn">👉 Descoperă rețetele</a>
+                </section>
+
+                <section id="zona3">
+                    <h2>Povestea din spatele paharului</h2>
+                    <h3>🍹 Băutura săptămânii: The Clover Club</h3>
+
+                    <p>Un clasic din Philadelphia, cu gin aromat, lămâie proaspătă și sirop de zmeură, învăluit într-o spumă fină de albuș.</br>
+                    
+                    💬 Fun fact: Preferat de gentlemenii din secolul trecut — acum perfect pentru tine!</br>                    
+                    👉 Încearcă-l și impresionează-ți prietenii!</p>
+                </section>
+
+                <section id="zona4">
+                    <h2>Știați că...</h2>
+                    <p>Cel mai vechi cocktail documentat este <i>Old Fashioned</i>, apărut în anii 1800 și considerat încă un simbol al mixologiei clasice!
+                    </p>
+                </section>
+
+                <section id="zona5">
+                    <div class="text-icon">
+                        <i class="fa-regular fa-newspaper"></i>
+                        <h2>Anunțuri Amber & Essence</h2>
+                    </div>
+                    <div class="anunt">
+                    <h3>📅 Eveniment special</h3>
+                    <p><strong>Atelier de Mixologie - Secretele unui cocktail perfect</strong></p>
+                    <p>Vino să descoperi tehnici inedite de preparare a cocktailurilor și să înveți de la cei mai buni mixologi! Locuri limitate - <strong>rezervă acum!</strong></p>
+                    </div>
+
+                    <div class="anunt">
+                    <h3>🎁 Surpriză pentru membrii comunității</h3>
+                    <p>În această lună, toți utilizatorii care împărtășesc rețetele lor preferate pot câștiga un set exclusiv de pahare pentru cocktailuri!</p>
+                    </div>
+                </section>
+                
+                <section id="zona6">
+                    <h2>Ingrediente și tipuri de alcool</h2>   
+                    <div class="table-container">               
+                    <table>
+                        <caption>Compatibilitatea ingredientelor cu tipuri de alcool</caption>
+                        <thead>
+                            <tr>
+                                <th>Ingrediente</th>
+                                <th>Vodka</th>
+                                <th>Rom</th>
+                                <th>Whisky</th>
+                                <th>Gin</th>
+                                <th>Tequila</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Lămâie</td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                        </tr>
+                        <tr>
+                            <td>Zahăr</td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>Apă tonică</td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                        </tr>
+                        <tr>
+                            <td>Sirop grenadine</td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">Mentă proaspătă</td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                            <td><input type="checkbox" class="checkbox" checked></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="6"></td>
+                        </tr>
+                    </tfoot>
+                    </table>
+                    </div>
+                </section>
+
+                <section id="zona7">
+                    <div class="text-icon">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <h2> Statistici utilizator</h2>
+                    </div>
+                    <div class="statistici">
+                        <div class="stat">
+                            <h3>🍹 Cocktailuri încercate</h3>
+                            <!-- <p><strong>15</strong> rețete testate</p> -->
+                        </div>
+                
+                        <div class="stat">
+                            <h3>⭐ Rețeta favorită</h3>
+                        </div>
+                
+                        <div class="stat">
+                            <h3>🗓️ Ultima activitate</h3>
+                        </div>
+                
+                        <div class="stat">
+                            <h3>🏅 Nivel mixolog</h3>
+                        </div>
+
+                        <div class="stat">
+                            <h3>IP utilizator <%- locals.ip %></h3>
+                        </div>
+                    </div>
+                
+                </section>
+
+                <section id="zona8">
+                    <div class="cocktail-box box1"></div>
+                    <div class="cocktail-box box2"></div>
+                    <div class="cocktail-box box3"></div>
+                    <div class="cocktail-box box4"></div>
+                    <div class="cocktail-box box5"></div>    
+                </section>
+                
+            </div>
+             
+            <map name="image-map">
+            <area target="_self" alt="Retete" title="Retete" href="#Retete" coords="674,430,760,207" shape="rect">
+            <area target="_self" alt="Cocktailul potrivit" title="Cocktailul potrivit" href="#Chestionar" coords="312,170,58" shape="circle">
+            </map>
+
+
+            <section id="Retete">
+                <h2>Rețete de cocktailuri</h2>
+                <p>Dulci, fresh, răcoritoare, cu sau fără alcool, acum ai la dispoziție o multitudine de rețete, ca să alegi exact ce îți place!</p>
+                <section id="clasice">
+                    <h3>Cocktailuri clasice</h3>
+                    <embed src="/resurse/pdf-uri/istoria_cocktailurilor_clasice.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="500" height="400" />
+                    <ul>
+                        <li>
+                            Martini<br/>
+                            <img src="/resurse/imagini/bauturi/martini.jpg" alt="martini"><br/>
+                            Descriere<br/>Un cocktail elegant și clasic, simplu, dar sofisticat, preferat de cunoscători.<br/><br/>Ingrediente (~120 ml /o porție)<br/>ml oz shot<br/>60 ml /2 oz /1.2 shots gin sau vodcă<br/>10 ml /0.34 oz /0.2 shot vermut dry<br/>1 măslină verde sau o coajă de lămâie (pentru decor)<br/>Gheață (pentru răcire, nu se servește în pahar)<br/><br/>
+                            Mod de preparare<br/>Umple un pahar de mixare cu gheață.<br/>
+                            Toarnă ginul (sau vodca) și vermutul peste gheață.<br/>
+                            Amestecă ușor cu o lingură timp de 20-30 secunde.<br/>
+                            Strecoară lichidul într-un pahar de Martini rece.<br/>
+                            Decorează cu o măslină verde sau o coajă de lămâie.<br/>
+                            Servește rece și savurează!<br/>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section id="racoritoare">
+                    <h3>Cocktailuri răcoritoare</h3>
+                    <ul>
+                        <li>
+                            Mojito<br/>
+                            <img src="/resurse/imagini/bauturi/mojito.jpg" alt="mojito"><br/>
+                            Descriere<br/>Cocktail răcoritor cubanez cu rom, lime și mentă, perfect pentru zilele călduroase.<br/><br/>Ingrediente (~350 ml /o porție)<br/>ml oz shot<br/>50 ml /1.7 oz /1 shot rom alb<br/>25 ml /0.85 oz /0.5 shot suc de lime proaspăt<br/>10 ml /0.34 oz /0.2 shot sirop de zahăr (2/3 zahar, 1/3 apă)<br/>6-8 frunze de mentă<br/>apă minerală (completare)<br/>1/2 lime<br/><br/>
+                            Mod de preparare<br/>Pune bucățile de lime și siropul de zahăr într-un pahar.<br/>
+                            Adaugă frunzele de mentă și presează-le ușor cu un muddler.<br/>
+                            Toarnă romul și umple paharul pe jumătate cu gheață zdrobită.<br/>
+                            Amestecă ușor cu o lingură lungă.<br/>
+                            Completează cu apă minerală și mai adaugă gheață.<br/>
+                            Decorează cu o crenguță de mentă și servește cu un pai.<br/>
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="indulcite">
+                    <h3>Cocktailuri îndulcite</h3>
+                    <ul>
+                        <li>
+                            Piña Colada<br/>
+                            <img src="/resurse/imagini/bauturi/pinacolada3.jpg" alt="pina_colada"><br/>
+                            Descriere<br/>Un cocktail tropical cremos cu rom, ananas și cocos, ideal pentru vacanțe exotice.<br/><br/>Ingrediente (~350 ml /o porție)<br/>ml oz shot<br/>50 ml /1.7 oz /1 shot rom alb<br/>100 ml /3.4 oz /2 shots suc de ananas<br/>50 ml /1.7 oz /1 shot cremă de cocos<br/>10 ml /0.34 oz /0.2 shot lapte condensat (opțional, pentru extra dulceață)<br/>1 cană gheață zdrobită<br/>felie de ananas și cireșă maraschino (pentru decor)<br/><br/>
+                            Mod de preparare<br/>Pune romul, sucul de ananas și crema de cocos într-un blender.<br/>
+                            Adaugă gheața zdrobită și, opțional, laptele condensat.<br/>
+                            Amestecă bine până obții o textură cremoasă și fină.<br/>
+                            Toarnă într-un pahar înalt și decorează cu o felie de ananas și o cireșă.<br/>
+                            Servește cu un pai și bucură-te de gustul tropical! 
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="mocktailuri">
+                    <h3>Cocktailuri fără alcool (mocktailuri)</h3>
+                </section>
+
+                <section id="lichior">
+                    <h3>Cocktailuri pe bază de lichior</h3>
+                </section>
+
+                <section id="petreceri">
+                    <h3>Cocktailuri pentru petreceri</h3>
+                </section>
+            </section>
+
+            <section id="Chestionar">
+                <h2>Alege cocktailul potrivit</h2>
+                <p>Nu știi ce cocktail să încerci?<br/>Fie că vrei ceva răcoritor, dulce sau cu un kick puternic, avem soluția! Alege-ți băutura perfectă pe baza preferințelor tale!</p>
+            </section>
+
+            <section id="Intrebari">
+                <h2>Întrebări frecvente</h2>
+
+                <details>
+                    <summary>Ce este mixologia?</summary>
+                    <p><dfn>Mixologia</dfn> este arta și știința preparării cocktailurilor. Un mixolog creează și experimentează cu rețete de băuturi, combinând arome și tehnici pentru a obține un echilibru perfect</p>
+                </details>
+
+                <details>
+                    <summary>Ce diferență este între un barman și un mixolog?</summary>
+                    <p>Un barman servește și prepară băuturi, în timp ce un mixolog creează rețete noi, explorează combinații de arome și perfecționează tehnici avansate de preparare.</p>
+                </details>
+
+                <details>
+                    <summary>Care sunt cele mai simple cocktailuri pe care le pot face acasă?</summary>
+                    <p>Câteva opțiuni ușor de realizat sunt Gin Tonic, Cuba Libre, Screwdriver și Spritz.</p>
+                </details>
+            
+                <details>
+                    <summary>Cum știu cât de tare este băutura pe care vreau să o prepar?</summary>
+                    <p>Formula pentru tăria alcoolică este următoarea:</p>
+                    <math>
+                        <mrow>
+                            <mi>ABV (Alcohol by Volume)</mi> <mo>=</mo>
+                            <mfrac>
+                                <mrow>
+                                    <mi>Volum alcool</mi> <mo>&#x22C5;</mo> <mi>Concentrație%</mi>
+                                </mrow>
+                                <mi>Volum total</mi>
+                            </mfrac>
+                            <mo>&#x22C5;</mo> <mn>100</mn>
+                        </mrow>
+                    </math>
+                </details>
+            
+                <details>
+                    <summary>Pot folosi miere sau alt îndulcitor în loc de zahăr?</summary>
+                    <p>Da! Mierea, siropul de agave sau siropul de arțar sunt alternative excelente, dar trebuie diluate puțin înainte de utilizare pentru a se amesteca bine.</p>
+                </details>
+            
+                <details>
+                    <summary>Care este regula de bază pentru echilibrul aromelor într-un cocktail?</summary>
+                    <p>O regulă clasică este proporția 2:1:1 - două părți alcool, o parte aciditate (zeamă de citrice) și o parte îndulcitor (sirop, lichior).</p>
+                        </details>
+            </section>
+        </main>
+
+        <%- include("../fragmente/footer.ejs")  %>
+    </body>
+</html>

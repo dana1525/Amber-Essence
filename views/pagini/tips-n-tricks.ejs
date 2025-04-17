@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="ro">
+    <head>
+        <meta name="description" content="Sfaturi utile. Greșeli frecvente. Metode de îmbunătățire.">
+        <meta name="keywords" content="cocktail, sfaturi, amestecare, mixologie, alcool, mocktail, tehnici preparare, bar acasă">
+
+        <title>Tips & Tricks în Mixologie</title>
+
+        <%- include("../fragmente/head.ejs") %>
+    </head>
+
+    <body>
+
+        <%- include("../fragmente/header.ejs")  %>
+
+        <main class="tips-n-tricks">
+        <section id="tehnici_de_baza">
+            <h2>Tehnici de bază în mixologie</h2>
+            <p>Mixologia nu este doar despre amestecarea băuturilor, ci despre echilibru și precizie.</p>
+            <p>O regulă de aur este proporția <strong>2:1:1</strong> - două părți tare (alcool), o parte acru (suc de citrice) și o parte dulce (sirop sau lichior).</p>
+
+            <h3>Moduri de amestecare:</h3>
+            <ul>
+                <li><strong>Agitare (shaking)</strong> – pentru băuturile cu sucuri, lactate sau ouă.</li>
+                <li><strong>Amestecare (stirring)</strong> – pentru băuturi doar cu alcool.</li>
+                <li><strong>Construcție (building)</strong> – băuturi simple turnate direct în pahar.</li>
+            </ul>
+        </section>
+
+        <section id="echipamente">
+            <h2>Echipamente esențiale pentru un bar acasă</h2>
+            <ul>
+                <li>Shaker</li>
+                <li>Jigger</li>
+                <li>Lingură de bar</li>
+                <li>Strecurătoare (strainer)</li>
+                <li>Presa pentru citrice</li>
+                <li>Mojar și pistil</li>
+            </ul>
+        </section>
+
+        <section id="greseli_frecvente">
+            <h2>Cele mai frecvente greșeli în prepararea cocktailurilor 🚫</h2>
+            <ul>
+                <li>Folosirea ingredientelor de slabă calitate</li>
+                <li>Prea multă sau prea puțină gheață</li>
+                <li>Dezechilibru între dulce, acru și alcool</li>
+                <li>Folosirea sucurilor din comerț</li>
+            </ul>
+        </section>
+
+        <p>Vrei chiar mai multe informații în mixologie? Vizitează următorul site
+            <a href="https://www.diffordsguide.com/" target="_blank">Difford's Guide</a>
+        </p> <!--link extern-->
+            <p>Sau descarcă ghidul nostru chiar de 
+                <a href="resurse/pdf-uri/ghid_mixologie.pdf" download="ghid_mixologie.pdf">aici</a>
+        </p> <!--link de tip download-->
+
+        <div class="container-iframe">
+            <div class="taburi-iframe">
+            <a href="https://www.youtube.com/embed/WgNCohTp7p4" target="ifr-video">A Beginner's Guide to Mixing Drinks</a><br/>
+            <a href="https://www.youtube.com/embed/PS5TFPwSOmg" target="ifr-video" >Ice & Dilution: This is Important! </a><br/>
+            </div>
+    
+            <iframe name="ifr-video" width="560" height="315" src="https://www.youtube.com/embed/WgNCohTp7p4" 
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <video controls preload="auto" style="width:70%; height: auto; max-width: 800px; min-width:300px;" poster="/resurse/imagini/poster.jpg">
+            <source src="resurse/video/beginner_guide.mp4" type="video/mp4">
+            <source src="resurse/video/beginner_guide.ogv" type="video/ogv">
+            <track  src="resurse/video/tracks/captions_beginner_guide_en.vtt" kind="captions" srclang="en" label="engleză" />
+            <track  default src="resurse/video/tracks/captions_beginner_guide.vtt" kind="captions" srclang="ro" label="romană" />
+        </video>
+
+        </main>
+
+        <%- include("../fragmente/footer.ejs")  %>
+    </body>
