@@ -10,8 +10,8 @@ nav {
   background-color: var(--color4);
   --inaltime-meniu: 40px;
   --latime-buton: 180px;
-  height: var(--inaltime-meniu);
-  width: 100%;
+  height: var(--inaltime-meniu)10px;
+  width: auto;
   font-size: 1.1em;
   margin-bottom: 5px;
   border-top: 4px solid var(--color2);
@@ -34,8 +34,6 @@ ul.meniu {
 ul.meniu li {
   width: var(--latime-buton);
   height: var(--inaltime-meniu);
-  margin-bottom: -3px;
-  margin-right: -3px;
   box-sizing: border-box;
   text-align: center;
   font-weight: bold;
@@ -69,13 +67,12 @@ ul.meniu ul {
   padding: 0;
   position: absolute;
   width: var(--latime-buton);
-  
   animation-name: animatie_submeniu;
   animation-timing-function: linear;
   animation-iteration-count: 1;
   animation-duration: 0.6s;
   animation-fill-mode: forwards;
-  transform-origin: 50% 0; /*scalare de la mijloc*/
+  transform-origin: 50% 0; /* se scaleaza dim mijloc */
 }
 ul.meniu div {
   color: var(--color10);
@@ -107,5 +104,3 @@ ul.meniu #text-acasa {
     transform: scaleY(100%) scaleX(100%);
   }
 }
-
-/*# sourceMappingURL=nav.css.map */

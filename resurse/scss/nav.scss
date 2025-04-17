@@ -10,8 +10,8 @@ nav {
 	background-color: var(--color4);
 	--inaltime-meniu: 40px;
 	--latime-buton: 180px;
-	height: var(--inaltime-meniu);
-	width: 100%;
+	height: var(--inaltime-meniu)+10px;
+	width: auto;
 	font-size: 1.1em;
 	margin-bottom: 5px;
 	
@@ -24,6 +24,7 @@ nav {
 	
     position: sticky;
 	top: 0;
+    z-index: 1000;
 }
 
 ul.meniu {
@@ -35,8 +36,6 @@ ul.meniu {
 		}
         width: var(--latime-buton);
         height: var(--inaltime-meniu);
-        margin-bottom: -3px;
-        margin-right: -3px;
         box-sizing: border-box;
         text-align: center;
         font-weight: bold;

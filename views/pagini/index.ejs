@@ -14,6 +14,8 @@
         <%- include("../fragmente/header.ejs")  %>
 
         <main>
+
+            <!-- <button type="button" class="btn btn-secondary btn-lg">Stil 1</button> -->
             <div id="grid-pagina">
                 <section id="zona1">
                     <h1>Descoperă magia mixologiei cu Amber & Essence</h1>                
@@ -35,7 +37,7 @@
                     <h3>Călătoria ta</h3> <p>Să înveți tehnici de preparare, rețete delicioase și să îți surprinzi prietenii
                         alături de noi!</p>
 
-                    <a href="#Retete" class="btn">👉 Descoperă rețetele</a>
+                    <a href="/retete" class="btn">👉 Descoperă rețetele</a>
                 </section>
 
                 <section id="zona3">
@@ -141,6 +143,7 @@
                     <div class="text-icon">
                         <i class="fa-solid fa-chart-pie"></i>
                         <h2> Statistici utilizator</h2>
+                        <hr id="special-hr">
                     </div>
                     <div class="statistici">
                         <div class="stat">
@@ -167,92 +170,36 @@
                 
                 </section>
 
-                <section id="zona8">
+                <!-- <section id="zona8">
                     <div class="cocktail-box box1"></div>
                     <div class="cocktail-box box2"></div>
                     <div class="cocktail-box box3"></div>
                     <div class="cocktail-box box4"></div>
                     <div class="cocktail-box box5"></div>    
-                </section>
+                </section> -->
                 
             </div>
              
+            <%- include("../fragmente/galerie-stat-content.ejs")  %>
+
             <map name="image-map">
             <area target="_self" alt="Retete" title="Retete" href="#Retete" coords="674,430,760,207" shape="rect">
             <area target="_self" alt="Cocktailul potrivit" title="Cocktailul potrivit" href="#Chestionar" coords="312,170,58" shape="circle">
             </map>
 
 
-            <section id="Retete">
-                <h2>Rețete de cocktailuri</h2>
-                <p>Dulci, fresh, răcoritoare, cu sau fără alcool, acum ai la dispoziție o multitudine de rețete, ca să alegi exact ce îți place!</p>
-                <section id="clasice">
-                    <h3>Cocktailuri clasice</h3>
-                    <embed src="/resurse/pdf-uri/istoria_cocktailurilor_clasice.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="500" height="400" />
-                    <ul>
-                        <li>
-                            Martini<br/>
-                            <img src="/resurse/imagini/bauturi/martini.jpg" alt="martini"><br/>
-                            Descriere<br/>Un cocktail elegant și clasic, simplu, dar sofisticat, preferat de cunoscători.<br/><br/>Ingrediente (~120 ml /o porție)<br/>ml oz shot<br/>60 ml /2 oz /1.2 shots gin sau vodcă<br/>10 ml /0.34 oz /0.2 shot vermut dry<br/>1 măslină verde sau o coajă de lămâie (pentru decor)<br/>Gheață (pentru răcire, nu se servește în pahar)<br/><br/>
-                            Mod de preparare<br/>Umple un pahar de mixare cu gheață.<br/>
-                            Toarnă ginul (sau vodca) și vermutul peste gheață.<br/>
-                            Amestecă ușor cu o lingură timp de 20-30 secunde.<br/>
-                            Strecoară lichidul într-un pahar de Martini rece.<br/>
-                            Decorează cu o măslină verde sau o coajă de lămâie.<br/>
-                            Servește rece și savurează!<br/>
-                        </li>
-                    </ul>
-                </section>
-                
-                <section id="racoritoare">
-                    <h3>Cocktailuri răcoritoare</h3>
-                    <ul>
-                        <li>
-                            Mojito<br/>
-                            <img src="/resurse/imagini/bauturi/mojito.jpg" alt="mojito"><br/>
-                            Descriere<br/>Cocktail răcoritor cubanez cu rom, lime și mentă, perfect pentru zilele călduroase.<br/><br/>Ingrediente (~350 ml /o porție)<br/>ml oz shot<br/>50 ml /1.7 oz /1 shot rom alb<br/>25 ml /0.85 oz /0.5 shot suc de lime proaspăt<br/>10 ml /0.34 oz /0.2 shot sirop de zahăr (2/3 zahar, 1/3 apă)<br/>6-8 frunze de mentă<br/>apă minerală (completare)<br/>1/2 lime<br/><br/>
-                            Mod de preparare<br/>Pune bucățile de lime și siropul de zahăr într-un pahar.<br/>
-                            Adaugă frunzele de mentă și presează-le ușor cu un muddler.<br/>
-                            Toarnă romul și umple paharul pe jumătate cu gheață zdrobită.<br/>
-                            Amestecă ușor cu o lingură lungă.<br/>
-                            Completează cu apă minerală și mai adaugă gheață.<br/>
-                            Decorează cu o crenguță de mentă și servește cu un pai.<br/>
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="indulcite">
-                    <h3>Cocktailuri îndulcite</h3>
-                    <ul>
-                        <li>
-                            Piña Colada<br/>
-                            <img src="/resurse/imagini/bauturi/pinacolada3.jpg" alt="pina_colada"><br/>
-                            Descriere<br/>Un cocktail tropical cremos cu rom, ananas și cocos, ideal pentru vacanțe exotice.<br/><br/>Ingrediente (~350 ml /o porție)<br/>ml oz shot<br/>50 ml /1.7 oz /1 shot rom alb<br/>100 ml /3.4 oz /2 shots suc de ananas<br/>50 ml /1.7 oz /1 shot cremă de cocos<br/>10 ml /0.34 oz /0.2 shot lapte condensat (opțional, pentru extra dulceață)<br/>1 cană gheață zdrobită<br/>felie de ananas și cireșă maraschino (pentru decor)<br/><br/>
-                            Mod de preparare<br/>Pune romul, sucul de ananas și crema de cocos într-un blender.<br/>
-                            Adaugă gheața zdrobită și, opțional, laptele condensat.<br/>
-                            Amestecă bine până obții o textură cremoasă și fină.<br/>
-                            Toarnă într-un pahar înalt și decorează cu o felie de ananas și o cireșă.<br/>
-                            Servește cu un pai și bucură-te de gustul tropical! 
-                        </li>
-                    </ul>
-                </section>
-
-                <section id="mocktailuri">
-                    <h3>Cocktailuri fără alcool (mocktailuri)</h3>
-                </section>
-
-                <section id="lichior">
-                    <h3>Cocktailuri pe bază de lichior</h3>
-                </section>
-
-                <section id="petreceri">
-                    <h3>Cocktailuri pentru petreceri</h3>
-                </section>
-            </section>
-
             <section id="Chestionar">
                 <h2>Alege cocktailul potrivit</h2>
-                <p>Nu știi ce cocktail să încerci?<br/>Fie că vrei ceva răcoritor, dulce sau cu un kick puternic, avem soluția! Alege-ți băutura perfectă pe baza preferințelor tale!</p>
+                <div class="chestionar">
+                Dacă ești indecis ce băutură să comanzi sau să prepari acasă, hai să te ajutăm! Completează formularul de mai jos cu preferințele tale, iar noi îți vom recomanda cocktailul perfect. Spune-ne ce arome îți plac (dulci, acre, amărui), ce nivel de alcool preferi (ușor, mediu, puternic), dacă ai vreo băutură de bază preferată (gin, vodcă, rom, tequila etc.) și în ce ocazie o servești (petrecere, cină romantică, relaxare după muncă). Pe baza răspunsurilor tale, vom crea o selecție personalizată de cocktailuri care ți se potrivesc. Fie că ești începător sau un barman amator, vei descoperi combinații delicioase adaptate gustului tău!
+
+                (Aici va urma formularul cu câmpuri pentru arome, tipul de alcool, ocazie etc.)
+
+                De ce să completezi acest formular?
+                Pentru că economisești timp – primești recomandări personalizate în loc să cauți la întâmplare
+                Descoperi băuturi noi pe care nu le-ai încercat, dar care ți se potrivesc
+                Înveți despre preferințele tale în materie de cocktailuri
+            </div>
             </section>
 
             <section id="Intrebari">

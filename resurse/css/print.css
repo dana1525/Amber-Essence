@@ -19,8 +19,8 @@ a{
     position: absolute;
     display: block;
     top: 0;
-    width:80%;
-    height:20px;
+    width: 80%;
+    height: 20px;
     left: 50%;
     transform: translateX(-50%);
     border: 2px var(--color10) dotted;
@@ -50,7 +50,7 @@ footer{
     }
 
     body::before {
-        content: "Mirescu Georgiana-Daniela";
+        content: "Mirescu Daniela";
         display: block;
         position: fixed;
         font-size: 20px;

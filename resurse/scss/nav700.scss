@@ -1,3 +1,7 @@
+nav{
+  border: none;
+}
+
 #hamburger {
     width: 35px;
     height: 100%;
@@ -19,7 +23,7 @@ ul.meniu {
     display: none;
     margin: 0;
     mask-image: linear-gradient(to bottom, black 10%, transparent 100%);
-
+    margin-top: 0px;
     width: 100%;
     background-color: var(--color4);
     mask-size: 100% 0;
@@ -28,6 +32,7 @@ ul.meniu {
     li {
         position: relative;
         margin: 0;
+        // margin-top: -10px;
         width: 100%;
         &:hover > ul{
             position: absolute;
@@ -49,21 +54,22 @@ ul.meniu {
 #ch-menu {
 	&:checked+ul.meniu {
 		display: block;
-        animation: open_menu 3s forwards;
+    animation: open_menu 3s forwards;
 	}
 }
 
 main{
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .bar {
     display: block;
-    width: 35px;
+    width: 40px;
     height: 6px;
     background-color: var(--color9);
     position: absolute;
-    left: 10px;
+    left: 30px;
+    top: 15px;
     border-radius: 5px;
     &:nth-child(1){
         top: 6px;

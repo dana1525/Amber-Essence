@@ -32,7 +32,6 @@ h1{
 }
 
 
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -367,7 +366,6 @@ table {
          margin-inline-start: 0;
          margin-inline-end: 0;
      }
-     padding-inline-start: 40px
  }
  
  ol {
