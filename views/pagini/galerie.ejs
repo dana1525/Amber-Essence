@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="ro">
+    <head>
+        <meta name="description" content="Galeri. Poze Diverse Cocktailuri.">
+        <meta name="keywords" content="cocktail, poza, negroni, aperol, gin tonic">
+
+        <title>Galerie</title>
+
+        <%- include("../fragmente/head.ejs") %>
+    </head>
+
+    <body>
+
+        <%- include("../fragmente/header.ejs")  %>
+
+        <main>
+        
+        <%- include("../fragmente/galerie-stat-content.ejs")  %>
+
+        <section>
+            <h2>Tipuri de alcool</h2>
+            <div id="galerie-animata">
+                <div class="viewport">
+                    <div class="grid">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+<%- include("../fragmente/footer.ejs")  %>
+</body>

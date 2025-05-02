@@ -1,0 +1,115 @@
+#efect-duotone {
+    background-image: url('../imagini/tips-n-tricks-imagine.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    width: 50%;
+    height: 400px;
+    z-index: 10;
+    transition: filter 1s linear;
+}
+
+#efect-duotone::before, #efect-duotone::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1px;
+    transition: opacity 2s linear;
+}
+
+#efect-duotone::before {
+    background-color: var(--color1);
+    mix-blend-mode: multiply; /*umbre si contrast*/
+    opacity: 1;
+}
+
+#efect-duotone::after {
+    background-color: var(--color2);
+    mix-blend-mode: screen; /*lumini si highlights*/
+    opacity: 1;
+}
+
+#efect-duotone:hover {
+    filter: brightness(0.7) contrast(1.2) grayscale(100%);
+    cursor: pointer;
+}
+
+#efect-duotone:hover::before, #efect-duotone:hover::after {
+    opacity: 0;
+}
+
+
+#efect-reflexie-text{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transform-origin: 0 0;
+    transform: rotateX(180deg) skew(-45deg) scaleY(0.5) translate(10px, -25px);
+    opacity: 0.55;
+    filter: blur(1px);
+
+    transition: transform 0.7s ease;
+}
+
+#efect-text{
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+#efect-text, #efect-reflexie-text{
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: bold;
+}
+
+#efect-text:hover #efect-reflexie-text{
+    transform: rotateX(180deg) skew(-45deg) scaleY(0.7) translate(10px, -28px);
+}
+
+@media screen and (min-width: 1201px){
+    .chestionar{
+        column-count: 2;
+        column-rule: 2px dashed var(--color10);
+        column-gap: 25px;
+    }
+    
+}
+
+::selection{
+    color: var(--color1);
+    background-color: var(--color5);
+}
+
+
+body.retete_css{
+    background-image: url(../imagini/background-img.png);
+    background-attachment: fixed;
+    background-size: cover;
+    transition: background-image 1s;
+    animation: changeBackground 5s infinite;
+  }
+
+@keyframes changeBackground {
+    0%, 45%{
+        background-image: url(../imagini/background-img.png);
+    }
+    100%{
+        background-image: url(../imagini/background-img.png);
+    }
+}
+
+
+#special-hr{
+    height: 15px;
+    border: none;
+    background-image: linear-gradient(to right, var(--color5) 0% 50%, transparent 50% 100%),
+                      linear-gradient(to right,var(--color1) 0% 50%, transparent 50% 100%),
+                      linear-gradient(to right, var(--color5) 0% 50%, transparent 50% 100%);
+    background-size: 25px 4px; /*latime grup si inaltime*/
+    background-position: 2px 0, 4px 4px, 0 8px;
+    background-repeat: repeat-x;
+}

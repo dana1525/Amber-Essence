@@ -1,0 +1,106 @@
+#hamburger {
+  display: none;
+}
+
+#ch-menu {
+  display: none;
+}
+
+nav {
+  background-color: var(--color4);
+  --inaltime-meniu: 40px;
+  --latime-buton: 180px;
+  height: var(--inaltime-meniu)10px;
+  width: auto;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  border-top: 4px solid var(--color2);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+ul.meniu {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+ul.meniu li {
+  width: var(--latime-buton);
+  height: var(--inaltime-meniu);
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: bold;
+  line-height: var(--inaltime-meniu);
+  transition: all 0.5s linear;
+  background-color: var(--color4);
+  position: relative;
+}
+ul.meniu li div .img-icon {
+  display: none;
+}
+ul.meniu li:hover {
+  z-index: 1;
+}
+ul.meniu li:hover ul {
+  display: block;
+  list-style: none;
+  z-index: 1;
+}
+ul.meniu li:hover > a {
+  color: var(--color1);
+}
+ul.meniu li:hover > div {
+  color: var(--color1);
+}
+ul.meniu li:hover #text-acasa {
+  opacity: 1;
+}
+ul.meniu ul {
+  display: none;
+  padding: 0;
+  position: absolute;
+  width: var(--latime-buton);
+  animation-name: animatie_submeniu;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+  transform-origin: 50% 0; /* se scaleaza dim mijloc */
+}
+ul.meniu div {
+  color: var(--color10);
+  text-decoration: none;
+  transition: all 0.3s linear;
+  display: block;
+  height: 100%;
+  cursor: pointer;
+}
+ul.meniu a {
+  color: var(--color10);
+  text-decoration: none;
+  transition: all 0.3s linear;
+  display: block;
+  height: 100%;
+  cursor: pointer;
+}
+ul.meniu #text-acasa {
+  opacity: 0;
+}
+
+@keyframes animatie_submeniu {
+  0% {
+    opacity: 0;
+    transform: scaleY(0) scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(100%) scaleX(100%);
+  }
+}

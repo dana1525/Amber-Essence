@@ -1,0 +1,137 @@
+{
+	"cale_galerie":"resurse/imagini/galerie",
+	"imagini": [
+		{
+			"cale_fisier": "cider.jpg",
+			"titlu": "Cidru",
+			"text_descriere": "Apple cider",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "beer.jpg",
+			"titlu": "Bere",
+			"text_descriere": "Types of beer",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "tequila2.jpg",
+			"titlu": "Tequila",
+			"text_descriere": "Tequila shots",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "gin.jpg",
+			"titlu": "Gin Tonic",
+			"text_descriere": "Gin Tonic",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "liquor.jpg",
+			"titlu": "Lichior",
+			"text_descriere": "Bottle of liquor",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "prosecco.jpg",
+			"titlu": "Prosecco",
+			"text_descriere": "Glass of Prosecco",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "rum.jpg",
+			"titlu": "Rom",
+			"text_descriere": "Glass of run",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "whisky.jpg",
+			"titlu": "Whisky",
+			"text_descriere": "Whisky bottles",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "wine.jpg",
+			"titlu": "Vin",
+			"text_descriere": "Types of wine",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "bitters.jpg",
+			"titlu": "Extracte aromatizate",
+			"text_descriere": "Extracte alcoolice aromatice",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "cognac.jpg",
+			"titlu": "Coniac",
+			"text_descriere": "Cognac",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "sake.jpg",
+			"titlu": "Sake",
+			"text_descriere": "Sake",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "kombucha.jpg",
+			"titlu": "Kombucha",
+			"text_descriere": "Kombucha glasses",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "vodka.jpg",
+			"titlu": "Vodca",
+			"text_descriere": "Vodka bottles",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "absinthe.jpg",
+			"titlu": "Absint",
+			"text_descriere": "Absinthe",
+			"galerie_animata": true
+		},
+		{
+			"cale_fisier": "caipirinha.jpg",
+			"titlu": "Caipirinha",
+			"text_descriere": "Caipirinha",
+			"luni": ["martie","februarie","noiembrie","aprilie", "decembrie", "mai"]
+		},
+		{
+			"cale_fisier": "negroni.jpg",
+			"titlu": "Negroni",
+			"text_descriere": "Negroni",
+			"luni": ["ianuarie","februarie","iunie", "mai", "aprilie", "mai"]
+			
+		},
+		{
+			"cale_fisier": "other_cocktail3.jpg",
+			"titlu": "Rom Cocktail",
+			"text_descriere": "Rom Cocktail",
+			"luni": ["ianuarie","noiembrie","iunie","martie","aprilie", "mai"]
+		},
+		{
+			"cale_fisier": "other_cocktail4.jpg",
+			"titlu": "Old Fashioned Whiskey",
+			"text_descriere": "Old Fashioned Whiskey",
+			"luni": ["noiembrie", "decembrie", "aprilie", "mai"]
+		},
+		{
+			"cale_fisier": "other_cocktail5.jpg",
+			"titlu": "Aperol Gin Sour",
+			"text_descriere": "Aperol Gin Sour",
+			"luni": ["noiembrie", "decembrie", "aprilie", "mai"]
+		},
+		{
+			"cale_fisier": "other_cocktail6.jpg",
+			"titlu": "Diverse Cocktailuri",
+			"text_descriere": "Diverse Cocktailuri",
+			"luni": ["martie", "aprilie", "mai", "iunie"]
+		},
+		{
+			"cale_fisier": "other_cocktail7.jpg",
+			"titlu": "Gin Tonic",
+			"text_descriere": "Gin Tonic"
+		}
+	]
+}

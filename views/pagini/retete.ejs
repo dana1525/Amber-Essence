@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="ro">
+    <head>
+        <!-- <meta name="description" content="Sfaturi utile. Greșeli frecvente. Metode de îmbunătățire.">
+        <meta name="keywords" content="cocktail, sfaturi, amestecare, mixologie, alcool, mocktail, tehnici preparare, bar acasă"> -->
+
+        <title>Retete</title>
+
+        <%- include("../fragmente/head.ejs") %>
+    </head>
+
+    <body class="retete_css">
+
+        <%- include("../fragmente/header.ejs")  %>
+
+        <main class="retete">
+            <h2>Rețete de cocktailuri</h2>
+            <p>Dulci, fresh, răcoritoare, cu sau fără alcool, acum ai la dispoziție o multitudine de rețete, ca să alegi exact ce îți place!<p>
+
+            <section id="clasice">
+                <h3>Cocktailuri clasice</h3>
+                <embed src="/resurse/pdf-uri/istoria_cocktailurilor_clasice.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="500" height="400" /><br/><br/>
+
+                <article class="cocktail-card">
+                    <h4 class="cocktail-name">Martini</h4>
+                    <img src="/resurse/imagini/bauturi/martini.jpg" alt="martini">
+                    <p class="cocktail-description">Un cocktail elegant și clasic, simplu, dar sofisticat, preferat de cunoscători.</p>
+
+                    <div class="ingredients">
+                        <h5>Ingrediente (~120 ml /o porție)</h5>
+                        <ul>
+                            <li>ml oz shot</li>
+                            <li>60 ml /2 oz /1.2 shots gin sau vodcă</li>
+                            <li>10 ml /0.34 oz /0.2 shot vermut dry</li>
+                            <li>1 măslină verde sau o coajă de lămâie (pentru decor)</li>
+                            <li>Gheață (pentru răcire, nu se servește în pahar)</li>
+                        </ul>
+                    </div>
+
+                    <div class="preparation">
+                        <h5>Mod de preparare</h5>
+                        <ol>
+                            <li>Umple un pahar de mixare cu gheață.</li>
+                            <li>Toarnă ginul (sau vodca) și vermutul peste gheață.</li>
+                            <li>Amestecă ușor cu o lingură timp de 20-30 secunde.</li>
+                            <li>Strecoară lichidul într-un pahar de Martini rece.</li>
+                            <li>Decorează cu o măslină verde sau o coajă de lămâie.</li>
+                            <li>Servește rece și savurează!</li>
+                        </ol>
+                    </div>
+                </article>
+
+            </section>
+            
+            <section id="racoritoare">
+                <h3>Cocktailuri răcoritoare</h3>
+
+                <article class="cocktail-card">
+                    <h4 class="cocktail-name">Mojito</h4>
+                    <img src="/resurse/imagini/bauturi/mojito.jpg" alt="mojito">
+                    <p class="cocktail-description">Cocktail răcoritor cubanez cu rom, lime și mentă, perfect pentru zilele călduroase.</p>
+
+                    <div class="ingredients">
+                        <h5>Ingrediente (~350 ml /o porție)</h5>
+                        <ul>
+                            <li>ml oz shot</li>
+                            <li>50 ml /1.7 oz /1 shot rom alb</li>
+                            <li>25 ml /0.85 oz /0.5 shot suc de lime proaspăt</li>
+                            <li>10 ml /0.34 oz /0.2 shot sirop de zahăr (2/3 zahar, 1/3 apă)</li>
+                            <li>6-8 frunze de mentă</li>
+                            <li>apă minerală (completare)</li>
+                            <li>1/2 lime</li>
+                        </ul>
+                    </div>
+
+                    <div class="preparation">
+                        <h5>Mod de preparare</h5>
+                        <ol>
+                            <li>Pune bucățile de lime și siropul de zahăr într-un pahar.</li>
+                            <li>Adaugă frunzele de mentă și presează-le ușor cu un muddler.</li>
+                            <li>Toarnă romul și umple paharul pe jumătate cu gheață zdrobită.</li>
+                            <li>Amestecă ușor cu o lingură lungă.</li>
+                            <li>Completează cu apă minerală și mai adaugă gheață.</li>
+                            <li>Decorează cu o crenguță de mentă și servește cu un pai.</li>
+                        </ol>
+                    </div>
+                </article>
+
+            </section>
+
+            <section id="indulcite">
+                <h3>Cocktailuri îndulcite</h3>
+
+                <article class="cocktail-card">
+                    <h4 class="cocktail-name">Piña Colada</h4>
+                    <img src="/resurse/imagini/bauturi/pinacolada3.jpg" alt="pina_colada">
+                    <p class="cocktail-description">Un cocktail tropical cremos cu rom, ananas și cocos, ideal pentru vacanțe exotice.</p>
+
+                    <div class="ingredients">
+                        <h5>Ingrediente (~350 ml /o porție)</h5>
+                        <ul>
+                            <li>ml oz shot</li>
+                            <li>50 ml /1.7 oz /1 shot rom alb</li>
+                            <li>100 ml /3.4 oz /2 shots suc de ananas</li>
+                            <li>50 ml /1.7 oz /1 shot cremă de cocos</li>
+                            <li>10 ml /0.34 oz /0.2 shot lapte condensat (opțional, pentru extra dulceață)</li>
+                            <li>1 cană gheață zdrobită</li>
+                            <li>felie de ananas și cireșă maraschino (pentru decor)</li>
+                        </ul>
+                    </div>
+
+                    <div class="preparation">
+                        <h5>Mod de preparare</h5>
+                        <ol>
+                            <li>Pune romul, sucul de ananas și crema de cocos într-un blender.</li>
+                            <li>Adaugă gheața zdrobită și, opțional, laptele condensat.</li>
+                            <li>Amestecă bine până obții o textură cremoasă și fină.</li>
+                            <li>Toarnă într-un pahar înalt și decorează cu o felie de ananas și o cireșă.</li>
+                            <li>Servește cu un pai și bucură-te de gustul tropical!</li>
+                        </ol>
+                    </div>
+                </article>
+
+            </section>
+
+            <section id="mocktailuri">
+                <h3>Cocktailuri fără alcool (mocktailuri)</h3>
+            </section>
+
+            <section id="lichior">
+                <h3>Cocktailuri pe bază de lichior</h3>
+            </section>
+
+            <section id="petreceri">
+                <h3>Cocktailuri pentru petreceri</h3>
+            </section>
+        </main>
+
+        <%- include("../fragmente/footer.ejs")  %>
+    </body>

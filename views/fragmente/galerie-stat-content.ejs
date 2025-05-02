@@ -1,0 +1,24 @@
+<section id="galerie-statica">
+    <h2>Galerie</h2>
+    <div id="gr">
+      <% 
+        d = new Date()
+        vect_luni=["ianuarie","februarie","martie","aprilie","mai","iunie","iulie","august","septembrie","octombrie","noiembrie","decembrie"]
+        luna_curenta = vect_luni[d.getMonth()]
+        
+        let count = 0;
+        for(let imag of locals.imagini) { %>
+            <% if(count >= 12) break; %>
+            <% if(imag.luni && imag.luni.includes(luna_curenta)) { %>
+                <% count++; %>
+                <figure>
+                    <source srcset="<%- imag.fisier_mic %>" media="screen and (max-width: 700px)">
+                    <source srcset="<%- imag.fisier_mediu %>" media="screen and (max-width: 1000px)">
+                    <img src="<%- imag.fisier %>" alt="<%- imag.alt ? imag.alt : imag.titlu %>" title="<%- imag.text_descriere%>">
+                    <figcaption><%- imag.text_descriere %></figcaption>
+                    <title></title>
+                </figure>
+            <% } %>
+        <% } %>
+    </div>
+</section>
