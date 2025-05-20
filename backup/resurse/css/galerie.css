@@ -76,3 +76,49 @@
     display: none;
   }
 }
+#galerie-animata {
+  width: 500px;
+  height: 370px;
+  overflow: hidden;
+}
+#galerie-animata .viewport {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#galerie-animata .grid {
+  display: grid;
+  transition: transform 1s ease-in-out;
+}
+#galerie-animata figure {
+  width: 500px;
+  height: 370px;
+  position: relative;
+}
+#galerie-animata figure figcaption {
+  position: absolute;
+  width: inherit;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-weight: bold;
+  background-color: var(--color9);
+  opacity: 0.8;
+}
+#galerie-animata img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes rotatie360 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.rotate {
+  animation: rotatie360 1s ease-in-out;
+}

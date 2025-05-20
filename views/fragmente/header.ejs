@@ -26,12 +26,17 @@
         <li><a href="/retete">Rețete</a>
             <ul>
                 <li><a href="/retete">Toate</a></li>
-                <li><a href="#">Clasice</a></li>
-                <li><a href="#">Răcoritoare </a></li>
-                <li><a href="#">Îndulcite </a></li>
-                <li><a href="#">Fără alcool</a></li>
-                <li><a href="#">Pe bază de lichior</a></li>
-                <li><a href="#">Pentru petreceri</a></li>
+
+                <% for(let opt of locals.optiuniMeniu){ %>
+                    <li><a href="/retete?categ=<%= opt.unnest %>"><%= opt.unnest %></a></li>   
+                    <!-- = afiseaza ce urmeaza -->
+                <% } %>
+                <!-- <li><a href="/retete?tip=clasice">Clasice</a></li>
+                <li><a href="/retete?tip=racoritoare">Răcoritoare </a></li>
+                <li><a href="/retete?tip=indulcite">Îndulcite </a></li>
+                <li><a href="/retete?tip=fara_alcool">Fără alcool</a></li>
+                <li><a href="/retete?tip=tropicale">Tropicale</a></li>
+                <li><a href="/retete?tip=pentru_petreceri">Pentru petreceri</a></li> -->
             </ul>
         </li> 
         <li><a href="/tips-n-tricks">Tips & Tricks</a>

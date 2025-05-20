@@ -2,12 +2,14 @@
 
 <html lang="ro">
     <head>
-        <!-- <meta name="description" content="Sfaturi utile. Greșeli frecvente. Metode de îmbunătățire.">
-        <meta name="keywords" content="cocktail, sfaturi, amestecare, mixologie, alcool, mocktail, tehnici preparare, bar acasă"> -->
-
-        <title>Retete</title>
-
-        <%- include("../fragmente/head.ejs") %>
+        <meta name="description" content="Cocktailuri. Retete. Mixologie. Tot ce vrei să știi despre mixurile de băuturi!">
+        <meta name="keywords" content="cocktail, rețete cocktailuri, mixologie, alcool, mocktail, tehnici preparare, bar acasă, sfaturi mixologie">
+        <link rel="stylesheet" href="/resurse/css/retete.css" type="text/css" />
+        
+        <title>Amber & Essence</title>
+        <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src=/resurse/js/retete.js></script>
+        <script type="text/javascript" src=/resurse/js/retete-cos.js></script>
     </head>
 
     <body class="retete_css">
@@ -52,89 +54,106 @@
                 </article>
 
             </section>
-            
-            <section id="racoritoare">
-                <h3>Cocktailuri răcoritoare</h3>
 
-                <article class="cocktail-card">
-                    <h4 class="cocktail-name">Mojito</h4>
-                    <img src="/resurse/imagini/bauturi/mojito.jpg" alt="mojito">
-                    <p class="cocktail-description">Cocktail răcoritor cubanez cu rom, lime și mentă, perfect pentru zilele călduroase.</p>
 
-                    <div class="ingredients">
-                        <h5>Ingrediente (~350 ml /o porție)</h5>
-                        <ul>
-                            <li>ml oz shot</li>
-                            <li>50 ml /1.7 oz /1 shot rom alb</li>
-                            <li>25 ml /0.85 oz /0.5 shot suc de lime proaspăt</li>
-                            <li>10 ml /0.34 oz /0.2 shot sirop de zahăr (2/3 zahar, 1/3 apă)</li>
-                            <li>6-8 frunze de mentă</li>
-                            <li>apă minerală (completare)</li>
-                            <li>1/2 lime</li>
-                        </ul>
-                    </div>
+        <label> Reteta: <input type="text" id="inp-nume"></label>
+        <div>
+            <p>Cu alcool?</p>
+            <p><label>Da
+                <input id="i_rad1"  name="gr_rad" value="true" type="radio"/>
+            </label></p>
+            <p><label>Nu
+                <input id="i_rad2"  name="gr_rad" value="false" type="radio"/>
+            </label>
+            <p><label>Toate
+                <input id="i_rad3" name="gr_rad" value="toate" type="radio" checked/>
+            </label>
+        </div>
 
-                    <div class="preparation">
-                        <h5>Mod de preparare</h5>
-                        <ol>
-                            <li>Pune bucățile de lime și siropul de zahăr într-un pahar.</li>
-                            <li>Adaugă frunzele de mentă și presează-le ușor cu un muddler.</li>
-                            <li>Toarnă romul și umple paharul pe jumătate cu gheață zdrobită.</li>
-                            <li>Amestecă ușor cu o lingură lungă.</li>
-                            <li>Completează cu apă minerală și mai adaugă gheață.</li>
-                            <li>Decorează cu o crenguță de mentă și servește cu un pai.</li>
-                        </ol>
-                    </div>
-                </article>
 
-            </section>
+        <label> Timp preparare (min): <span id="infoRange">(0)</span><input type="range" id="inp-timp_prep_min" value="0" min="0"  max="15" step="1"> <span id="infoMaxRange">(15)</span></label>
+        <label>Select simplu:
+            <select id="inp-categorie">
+                <option id="sel-toate" selected value="toate">toate</option>
+                <% for (let opt of locals.optiuni) { %>
+                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                <% } %>
+            </select>
+        </label>
 
-            <section id="indulcite">
-                <h3>Cocktailuri îndulcite</h3>
+        <div class="filtru-avansat">
+            <label for="inp-filtru-textarea">Căutare avansată:
+                <textarea id="inp-filtru-textarea" rows="3" placeholder="Introduceți cuvinte cheie pentru a căuta în descrieri, ingrediente sau nume."></textarea>
+            </label>
+            <div class="info-filtru">
+                <p><small>Exemplu: "mentă rom" va căuta cocktailuri care conțin ambele ingrediente.</small></p>
+                <p><small>Puteți căuta după: nume, ingrediente, descriere, stil servire.</small></p>
+            </div>
+        </div>
 
-                <article class="cocktail-card">
-                    <h4 class="cocktail-name">Piña Colada</h4>
-                    <img src="/resurse/imagini/bauturi/pinacolada3.jpg" alt="pina_colada">
-                    <p class="cocktail-description">Un cocktail tropical cremos cu rom, ananas și cocos, ideal pentru vacanțe exotice.</p>
+        <label>Bază alcoolică
+            <input list="baze" id="inp-baza" value="toate">
+            <datalist id="baze">
+                <option value="toate">
+                <% for(let opt of locals.optiuniBazaAlcool) { %>
+                    <option value="<%- opt.unnest%>">
+                <% } %>
+            </datalist>
+        </label>
 
-                    <div class="ingredients">
-                        <h5>Ingrediente (~350 ml /o porție)</h5>
-                        <ul>
-                            <li>ml oz shot</li>
-                            <li>50 ml /1.7 oz /1 shot rom alb</li>
-                            <li>100 ml /3.4 oz /2 shots suc de ananas</li>
-                            <li>50 ml /1.7 oz /1 shot cremă de cocos</li>
-                            <li>10 ml /0.34 oz /0.2 shot lapte condensat (opțional, pentru extra dulceață)</li>
-                            <li>1 cană gheață zdrobită</li>
-                            <li>felie de ananas și cireșă maraschino (pentru decor)</li>
-                        </ul>
-                    </div>
+        <label>Tip de servire (apasă Ctrl/Cmd pentru selecție multiplă)
+            <select id="inp-servire" multiple>
+            <% for(let opt of locals.optiuniServire) { %>
+                <option value="<%= opt.unnest%>"><%= opt.unnest%></option>
+            <% } %>
+                </select>
+        </label>
 
-                    <div class="preparation">
-                        <h5>Mod de preparare</h5>
-                        <ol>
-                            <li>Pune romul, sucul de ananas și crema de cocos într-un blender.</li>
-                            <li>Adaugă gheața zdrobită și, opțional, laptele condensat.</li>
-                            <li>Amestecă bine până obții o textură cremoasă și fină.</li>
-                            <li>Toarnă într-un pahar înalt și decorează cu o felie de ananas și o cireșă.</li>
-                            <li>Servește cu un pai și bucură-te de gustul tropical!</li>
-                        </ol>
-                    </div>
-                </article>
+        <label>Vegan<input type="checkbox" id="chk-vegan" name="vegan"></label>
 
-            </section>
+        <p>
+        <button id="filtrare">Filtreaza</button> 
 
-            <section id="mocktailuri">
-                <h3>Cocktailuri fără alcool (mocktailuri)</h3>
-            </section>
+        <button id="resetare">Reseteaza</button><br/>
+        <button id="sortCrescTimpNume">Sorteaza crescator dupa timp preparare si nume</button><br/>
+        <button id="sortDescrescTimpNume">Sorteaza descrescator dupa timp preparare si nume</button>
+        
+        </p>
+    
+        <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
 
-            <section id="lichior">
-                <h3>Cocktailuri pe bază de lichior</h3>
-            </section>
+        <section id="retete">
 
-            <section id="petreceri">
-                <h3>Cocktailuri pentru petreceri</h3>
-            </section>
+            <h2>Retete cocktailuri</h2>
+            <div class="grid-retete">
+                <% for( let ret of locals.retete) { %>
+                    <article class="reteta"
+                        data-ingrediente = "<%= ret.ingrediente.join(', ') %>"
+                        data-baza = "<%= ret.baza %>"
+                        data-stil = "<%= ret.stil %>"
+                        data-descriere = "<%= ret.descriere%>" >
+                        <h3 class="nume"><a href="/reteta/<%-ret.id %>" ><span class="val-nume"><%- ret.nume%></span></a></h3>
+                        <div class="info-ret">
+                            <p class="timp_prep_min">Timp preparare (min): <span class="val-timp_prep_min"><%- ret.timp_prep_min%></span></p>
+                            <br/>
+                            <p class="vegan">Vegan: <span class="val-vegan"><%- ret.vegan %></span></p>
+                            <p class="contine_alcool">Cu alcool? <span class="val-contine_alcool"><%- ret.contine_alcool %></p>
+                        </div>
+                        <p class="categorie">Categorie: <span class="val-categorie"><%- ret.categorie%></span></p>
+                        <p class="baza">Bază alcoolică: <span class="val-baza"><%- ret.baza%></span></p>
+                        <p class="stil">Stil servire: <span class="val-stil"><%- ret.stil%></span></p>
+                        <figure>
+                            <a href="/reteta/<%-ret.id %>" ><img src="/resurse/imagini/retete/<%- ret.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- ret.nume %>]" /></a>
+                        </figure>
+                        <label class="selecteaza-cos">
+                            Selectează:<br/>
+                            <input type="checkbox" class="select-cos" value="<%-ret.id %>" autocomplete="off">
+                        </label>
+                    </article>
+                <% }%>
+            </div>
+        </section>
+
         </main>
 
         <%- include("../fragmente/footer.ejs")  %>

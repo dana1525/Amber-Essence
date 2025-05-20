@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Cocktailuri. Retete. Mixologie. Tot ce vrei să știi despre mixurile de băuturi!">
+        <meta name="keywords" content="cocktail, rețete cocktailuri, mixologie, alcool, mocktail, tehnici preparare, bar acasă, sfaturi mixologie">
+        
+        <title>Amber & Essence</title>
+        <%- include("../fragmente/head") %>     
+        <link href="/resurse/css/reteta.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+
+        <%- include("../fragmente/header") %>    
+
+        <main>
+            <section>
+                <h2>Pagină rețetă</h2>
+                    <article id="art-reteta">
+                        <h3><span class="nume"><%- locals.ret.nume %></span></h3>
+                        <p>Timp preparare (min): <span class="timp_prep_min"><%- locals.ret.timp_prep_min %> </span></p>
+                        <p>Descriere: <span class="descriere"><%- locals.ret.descriere %> </span></p>
+                        <p>Ingrediente: <span class="ingrediente"><%- locals.ret.ingrediente %> </span></p>
+                        <p>Categorie: <span class="categorie"><%- locals.ret.categorie %> </span></p>
+                        <p>Volum (ml): <span class="volum_ml"><%- locals.ret.volum_ml %> </span></p>
+                        <p>Tărie alcoolică (%): <span class="tarie_alcoolica"><%- locals.ret.tarie_alcoolica %> </span></p>
+                        <p>Bază alcoolică: <span class="baza"><%- locals.ret.baza %> </span></p>
+                        <p>Stil servire: <span class="stil"><%- locals.ret.stil %> </span></p>
+                        <p>Vegan: <span class="vegan"><%- locals.ret.vegan ? "Da" : "Nu" %></span>
+                        <p>Conține alcool: <span class="contine_alcool"><%- locals.ret.contine_alcool ? "Da" : "Nu" %> </span></p>
+                        <p>Data adăugare: <span class="data_adaugare"><%- locals.ret.data_adaugare %> </span></p>
+                        <figure class="imag-reteta">
+                            <img  src="/resurse/imagini/retete/<%- locals.ret.imagine %>" alt="[imagine <%- locals.ret.nume %>]" />
+                        </figure>    
+                    </article>
+                
+            </section>
+        </main>
+
+        <%- include("../fragmente/footer") %>
+    </body>
+</html>
