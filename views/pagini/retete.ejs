@@ -71,7 +71,7 @@
         </div>
 
 
-        <label> Timp preparare (min): <span id="infoRange">(0)</span><input type="range" id="inp-timp_prep_min" value="0" min="0"  max="15" step="1"> <span id="infoMaxRange">(15)</span></label>
+        <label> Timp preparare până la: <span id="infoRange">(0)</span><input type="range" id="inp-timp_prep" value="0" min="0"  max="15" step="1"> <span id="infoMaxRange">(15)</span></label>
         <label>Select simplu:
             <select id="inp-categorie">
                 <option id="sel-toate" selected value="toate">toate</option>
@@ -115,12 +115,12 @@
         <button id="filtrare">Filtreaza</button> 
 
         <button id="resetare">Reseteaza</button><br/>
-        <button id="sortCrescTimpNume">Sorteaza crescator dupa timp preparare si nume</button><br/>
-        <button id="sortDescrescTimpNume">Sorteaza descrescator dupa timp preparare si nume</button>
+        <button id="sortCresc">Sorteaza crescator dupa volum alcoolic si tip cocktail</button><br/>
+        <button id="sortDescresc">Sorteaza descrescator dupa volum alcoolic si tip cocktail</button>
         
         </p>
     
-        <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+        <p id="r-minim">Apăsați Alt+"c" pentru rețeta cu timpul minim de preparare dintre cele afișate. </p>
 
         <section id="retete">
 
@@ -131,10 +131,12 @@
                         data-ingrediente = "<%= ret.ingrediente.join(', ') %>"
                         data-baza = "<%= ret.baza %>"
                         data-stil = "<%= ret.stil %>"
-                        data-descriere = "<%= ret.descriere%>" >
+                        data-descriere = "<%= ret.descriere%>"
+                        data-tarie = "<%= ret.tarie_alcoolica %>"
+                        data-volum = "<%= ret.volum_ml %>" >
                         <h3 class="nume"><a href="/reteta/<%-ret.id %>" ><span class="val-nume"><%- ret.nume%></span></a></h3>
                         <div class="info-ret">
-                            <p class="timp_prep_min">Timp preparare (min): <span class="val-timp_prep_min"><%- ret.timp_prep_min%></span></p>
+                            <p class="timp_prep">Timp preparare: <span class="val-timp_prep"><%- ret.timp_prep%> minute</span></p>
                             <br/>
                             <p class="vegan">Vegan: <span class="val-vegan"><%- ret.vegan %></span></p>
                             <p class="contine_alcool">Cu alcool? <span class="val-contine_alcool"><%- ret.contine_alcool %></p>

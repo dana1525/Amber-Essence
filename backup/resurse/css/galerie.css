@@ -27,7 +27,7 @@
   transition: all 1.1s linear;
 }
 #gr figure:hover {
-  box-shadow: grey 0px 0px 7px;
+  box-shadow: grey 0 0 7px;
   filter: contrast(200%);
   transition: all 1.1s;
 }
