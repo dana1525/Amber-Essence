@@ -92,7 +92,7 @@
         </div>
 
         <label>Bază alcoolică
-            <input list="baze" id="inp-baza" value="toate">
+            <input list="baze" id="inp-baza" value="">
             <datalist id="baze">
                 <option value="toate">
                 <% for(let opt of locals.optiuniBazaAlcool) { %>
@@ -139,7 +139,7 @@
                             <p class="timp_prep">Timp preparare: <span class="val-timp_prep"><%- ret.timp_prep%> minute</span></p>
                             <br/>
                             <p class="vegan">Vegan: <span class="val-vegan"><%- ret.vegan %></span></p>
-                            <p class="contine_alcool">Cu alcool? <span class="val-contine_alcool"><%- ret.contine_alcool %></p>
+                            <p class="contine_alcool">Cu alcool? <span class="val-contine_alcool"><%- ret.contine_alcool %></span></p>
                         </div>
                         <p class="categorie">Categorie: <span class="val-categorie"><%- ret.categorie%></span></p>
                         <p class="baza">Bază alcoolică: <span class="val-baza"><%- ret.baza%></span></p>

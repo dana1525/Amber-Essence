@@ -1,3 +1,40 @@
+function valideazaInputuri() {
+    let valid = true;
+    let mesaj = "";
+
+    // Input text: nume - daca e completat, sa nu aiba cifre
+    let inpNume = document.getElementById("inp-nume");
+    if (inpNume.value.trim() !== "" && /\d/.test(inpNume.value)) { // problema daca textul contine cifre
+        valid = false;
+        mesaj += "Numele nu trebuie să conțină cifre.\n";
+    }
+
+    // Textarea - poate fi gol campul, dar dacă nu e, sa aiba cuvinte reale
+    let inpTextarea = document.getElementById("inp-filtru-textarea");
+    if (inpTextarea.value.trim() !== "" && !/[a-zA-Z]/.test(inpTextarea.value)) { // problema daca textul nu contine nicio litera
+        valid = false;
+        mesaj += "Câmpul de căutare trebuie să conțină text valid.\n";
+    }
+
+    // Validare baza alcoolica - daca e completat, permite numai litere (inclusiv diacritice) si spatii
+    let inpBaza = document.getElementById("inp-baza");
+    let bazaVal = inpBaza.value.trim().toLowerCase();
+    if (bazaVal !== "" && !/^[a-zA-ZăîâșțĂÎÂȘȚ\s]+$/.test(bazaVal)) {
+        valid = false;
+        mesaj += `Câmpul "Baza alcoolică" trebuie să conțină doar litere și spații.\n`;
+        inpBaza.classList.add("invalid");
+    } else {
+    inpBaza.classList.remove("invalid");
+    }
+
+    if (!valid) {
+        alert(mesaj.trim());
+    }
+
+    return valid;
+}
+
+
 let retete;
 let reteteInitiale;
 
@@ -21,6 +58,8 @@ window.onload = function(){
         let inpBaza = document.getElementById("inp-baza").value.trim().toLowerCase();
         let arrServire = Array.from(document.querySelectorAll("#inp-servire option:checked")).map(opt => opt.value.trim().toLowerCase());
         let inpVegan = document.getElementById('chk-vegan').checked;
+
+        if(!valideazaInputuri()) return;
 
         // Aplicare filtre
         for(let ret of retete){
@@ -55,7 +94,7 @@ window.onload = function(){
             }
 
             let baza = ret.getElementsByClassName("val-baza")[0].innerHTML.trim().toLowerCase();
-            let cond6 = (inpBaza == "toate" || inpBaza == baza)
+            let cond6 = (inpBaza == "" || inpBaza == "toate" || inpBaza == baza)
 
             let cond7 = true;
             if(arrServire.length > 0){
@@ -89,7 +128,7 @@ window.onload = function(){
         document.getElementById("infoRange").innerHTML = "0";
         document.getElementById("inp-categorie").value = "toate";
         document.getElementById("inp-filtru-textarea").value = "";
-        document.getElementById("inp-baza").value = "toate";   ////???? "toate"
+        document.getElementById("inp-baza").value = "";
         document.getElementById("chk-vegan").checked = false;
         Array.from(document.querySelectorAll("#inp-servire option:checked")).forEach(opt => opt.selected = false);
 
@@ -103,10 +142,12 @@ window.onload = function(){
 
     // Butoane de sortare: crescator / descrescator
     document.getElementById("sortCresc").onclick = function(){
+        if(!valideazaInputuri()) return;
         sorteaza(1);
     }
 
     document.getElementById("sortDescresc").onclick=function(){
+        if(!valideazaInputuri()) return;
         sorteaza(-1);
     }
 
@@ -152,7 +193,7 @@ window.onload = function(){
                 }
             }
             if(!document.getElementById("timp-minim")){
-                let pRezultat = document.createElement("p") //<p></p>
+                let pRezultat = document.createElement("div")
                 pRezultat.innerHTML = timpMinim + " minute"
                 pRezultat.id ="timp-minim"
                 let p = document.getElementById("r-minim")

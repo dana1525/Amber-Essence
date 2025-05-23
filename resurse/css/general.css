@@ -44,7 +44,6 @@ body{
                        "zona2     zona2      zona3      zona3"
                        "zona2     zona2      zona4      zona4"
                        "zona5     zona6      zona6      zona7";
-  /* previne overflow-ul pe orizontala */
   gap: var(--distanta-grid);
   overflow-x: hidden;
   background-color: var(--color9);
