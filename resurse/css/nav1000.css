@@ -3,10 +3,9 @@ nav {
   --latime-buton: 155px;
 }
 
-ul.meniu{
+ul.meniu {
   width: 95%;
 }
-
 ul.meniu ul {
   width: var(--latime-buton);
 }
