@@ -38,6 +38,20 @@ body{
   background-color: var(--color6);
 }
 
+body.dark{
+  --color1: #dca97d;
+  --color2: #802600;
+  --color3: #855200;
+  --color4: #a54d00;
+  --color5: #410c05;
+  --color6: #b07727;
+  --color7: #915623;
+  --color8: rgb(209, 206, 206);
+  --color9: rgba(212, 198, 181, 0.904);
+  --color10: #000000;
+  background-color: var(--color6);
+}
+
 #grid-pagina{
   display: grid;
   grid-template-areas: "zona1     zona1      zona1      zona1"
@@ -329,7 +343,7 @@ mi:first-of-type {
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
     html{
         font-size: 12px;
     }

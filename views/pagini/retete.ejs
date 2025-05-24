@@ -17,16 +17,15 @@
         <%- include("../fragmente/header.ejs")  %>
 
         <main class="retete">
-            <h2>Rețete de cocktailuri</h2>
-            <p>Dulci, fresh, răcoritoare, cu sau fără alcool, acum ai la dispoziție o multitudine de rețete, ca să alegi exact ce îți place!<p>
+            <h2 class="text-center custom-heading mb-4 mt-4 custom-text">Rețete de cocktailuri</h2>
+            <p class="text-center lead mb-4">Dulci, fresh, răcoritoare, cu sau fără alcool, ai la dispoziție o multitudine de rețete, ca să alegi exact ce îți place!<p>
 
-            <section id="clasice">
+            <!-- <section id="clasice">
                 <h3>Cocktailuri clasice</h3>
                 <embed src="/resurse/pdf-uri/istoria_cocktailurilor_clasice.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="500" height="400" /><br/><br/>
 
                 <article class="cocktail-card">
                     <h4 class="cocktail-name">Martini</h4>
-                    <img src="/resurse/imagini/bauturi/martini.jpg" alt="martini">
                     <p class="cocktail-description">Un cocktail elegant și clasic, simplu, dar sofisticat, preferat de cunoscători.</p>
 
                     <div class="ingredients">
@@ -53,78 +52,159 @@
                     </div>
                 </article>
 
-            </section>
+            </section> -->
 
+            <div class="container mt-4">
+                    <div class="row g-3">
 
-        <label> Reteta: <input type="text" id="inp-nume"></label>
-        <div>
-            <p>Cu alcool?</p>
-            <p><label>Da
-                <input id="i_rad1"  name="gr_rad" value="true" type="radio"/>
-            </label></p>
-            <p><label>Nu
-                <input id="i_rad2"  name="gr_rad" value="false" type="radio"/>
-            </label>
-            <p><label>Toate
-                <input id="i_rad3" name="gr_rad" value="toate" type="radio" checked/>
-            </label>
-        </div>
+                    <!-- Căutare avansată -->
+                    <div class="col-12">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Căutare..." id="inp-filtru-textarea" style="height: 100px"></textarea>
+                                    <label for="inp-filtru-textarea">Căutare avansată</label>
+                                </div>
+                                <div class="form-text mt-2">
+                                    <small>Caută după: nume, ingrediente, descriere, stil servire.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Nume rețetă -->
+                    <!-- ocupa toate cele 12 coloane (pe ecran mare, 100% din latime), 1/2 pe ecran mediu, 1/3 pe ecran mic  -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <label for="inp-nume" class="form-label">Rețetă:</label>
+                                <input type="text" id="inp-nume" class="form-control">
+                            </div>
+                        </div>
+                    </div>
 
-        <label> Timp preparare până la: <span id="infoRange">(0)</span><input type="range" id="inp-timp_prep" value="0" min="0"  max="15" step="1"> <span id="infoMaxRange">(15)</span></label>
-        <label>Select simplu:
-            <select id="inp-categorie">
-                <option id="sel-toate" selected value="toate">toate</option>
-                <% for (let opt of locals.optiuni) { %>
-                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
-                <% } %>
-            </select>
-        </label>
+                    <!-- Select simplu -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <label for="inp-categorie" class="form-label">Categorie:</label>
+                                <select id="inp-categorie" class="form-select">
+                                <option id="sel-toate" selected value="toate">toate</option>
+                                <% for (let opt of locals.optiuni) { %>
+                                    <option value="<%- opt.unnest %>"><%- opt.unnest %></option>
+                                <% } %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="filtru-avansat">
-            <label for="inp-filtru-textarea">Căutare avansată:
-                <textarea id="inp-filtru-textarea" rows="3" placeholder="Introduceți cuvinte cheie pentru a căuta în descrieri, ingrediente sau nume."></textarea>
-            </label>
-            <div class="info-filtru">
-                <p><small>Exemplu: "mentă rom" va căuta cocktailuri care conțin ambele ingrediente.</small></p>
-                <p><small>Puteți căuta după: nume, ingrediente, descriere, stil servire.</small></p>
+                    <!-- Bază alcoolică -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <label for="inp-baza" class="form-label">Bază alcoolică:</label>
+                                <input list="baze" id="inp-baza" class="form-control">
+                                <datalist id="baze">
+                                    <option value="toate">
+                                    <% for(let opt of locals.optiuniBazaAlcool) { %>
+                                        <option value="<%- opt.unnest %>">
+                                    <% } %>
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cu alcool -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <label class="form-label d-block mb-3">Cu alcool?</label>
+                                <div class="btn-group w-100" role="group" aria-label="Cu alcool?">
+                                    <input type="radio" class="btn-check" name="gr_rad" id="i_rad1" value="true" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="i_rad1">
+                                        <i class="bi bi-check-circle me-1"></i><span class="d-none d-md-inline">Da</span>
+                                    </label>
+
+                                    <input type="radio" class="btn-check" name="gr_rad" id="i_rad2" value="false" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="i_rad2">
+                                        <i class="bi bi-x-circle me-1"></i><span class="d-none d-md-inline">Nu</span>
+                                    </label>
+
+                                    <input type="radio" class="btn-check" name="gr_rad" id="i_rad3" value="toate" checked autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="i_rad3">
+                                        <i class="bi bi-infinity me-1"></i><span class="d-none d-md-inline">Toate</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Timp preparare -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <label for="inp-timp_prep" class="form-label">Timp preparare (maxim): <span id="infoRange">0</span> / <span id="infoMaxRange">15</span> minute</label>
+                                <input type="range" id="inp-timp_prep" value="0" min="0" max="15" step="1" class="form-range">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stil servire -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <label for="inp-servire" class="form-label">Tip de servire (Ctrl/Cmd pt. selecție multiplă):</label>
+                                <select id="inp-servire" multiple class="form-select">
+                                    <% for(let opt of locals.optiuniServire) { %>
+                                        <option value="<%= opt.unnest%>"><%= opt.unnest%></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+                    </div>                    
+
+                    <!-- Checkbox Vegan -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                        <input type="checkbox" class="btn-check" id="chk-vegan" autocomplete="off">
+                        <label class="btn btn-outline-primary w-100" for="chk-vegan">Doar rețete vegane</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Butoane acțiuni -->
+                    <div class="col-12">
+                        <div class="d-flex flex-wrap gap-2 mt-3 justify-content-center">
+                        <button id="filtrare" class="btn btn-primary btn-custom bt-sm">
+                            <i class="bi bi-funnel"></i><span class="btn-text ms-2"> Filtrează</span>
+                        </button>
+                        <button id="resetare" class="btn btn-primary btn-custom bt-sm">
+                            <i class="bi bi-arrow-counterclockwise"></i><span class="btn-text ms-2"> Resetează</span>
+                        </button>
+                        <button id="sortCresc" class="btn btn-primary btn-custom bt-sm">
+                            <i class="bi bi-sort-down-alt"></i><span class="btn-text ms-2"> Sortează crescător (după alcool)</span>
+                        </button>
+                        <button id="sortDescresc" class="btn btn-primary btn-custom bt-sm">
+                            <i class="bi bi-sort-up-alt"></i><span class="btn-text ms-2"> Sortează descrescător (după alcool)</span>
+                        </button>
+                        </div>
+                    </div>
+
+                    <!-- ALT + C -->
+                    <div class="col-12">
+                        <p id="r-minim" class="mt-3 text-center text-muted small">
+                            <i class="bi bi-keyboard me-2">  Apăsați Alt+"c" pentru rețeta cu timpul minim de preparare dintre cele afișate.</i>
+                        </p>
+                    </div>
+                    </div>
             </div>
-        </div>
 
-        <label>Bază alcoolică
-            <input list="baze" id="inp-baza" value="">
-            <datalist id="baze">
-                <option value="toate">
-                <% for(let opt of locals.optiuniBazaAlcool) { %>
-                    <option value="<%- opt.unnest%>">
-                <% } %>
-            </datalist>
-        </label>
-
-        <label>Tip de servire (apasă Ctrl/Cmd pentru selecție multiplă)
-            <select id="inp-servire" multiple>
-            <% for(let opt of locals.optiuniServire) { %>
-                <option value="<%= opt.unnest%>"><%= opt.unnest%></option>
-            <% } %>
-                </select>
-        </label>
-
-        <label>Vegan<input type="checkbox" id="chk-vegan" name="vegan"></label>
-
-        <p>
-        <button id="filtrare">Filtreaza</button> 
-
-        <button id="resetare">Reseteaza</button><br/>
-        <button id="sortCresc">Sorteaza crescator dupa volum alcoolic si tip cocktail</button><br/>
-        <button id="sortDescresc">Sorteaza descrescator dupa volum alcoolic si tip cocktail</button>
-        
-        </p>
-    
-        <p id="r-minim">Apăsați Alt+"c" pentru rețeta cu timpul minim de preparare dintre cele afișate. </p>
 
         <section id="retete">
 
-            <h2>Retete cocktailuri</h2>
+            <h2 class="text-center custom-heading mb-4 mt-4 custom-text">Rețete disponibile</h2>
+
             <div class="grid-retete">
                 <% for( let ret of locals.retete) { %>
                     <article class="reteta"

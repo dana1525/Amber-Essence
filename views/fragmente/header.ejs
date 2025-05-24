@@ -1,3 +1,4 @@
+<script src="/resurse/js/tema.js"></script>
 <header>
     <h1 style="color:#000000">Amber & Essence</h1>
 </header>
@@ -31,12 +32,6 @@
                     <li><a href="/retete?categ=<%= opt.unnest %>"><%= opt.unnest %></a></li>   
                     <!-- = afiseaza ce urmeaza -->
                 <% } %>
-                <!-- <li><a href="/retete?tip=clasice">Clasice</a></li>
-                <li><a href="/retete?tip=racoritoare">Răcoritoare </a></li>
-                <li><a href="/retete?tip=indulcite">Îndulcite </a></li>
-                <li><a href="/retete?tip=fara_alcool">Fără alcool</a></li>
-                <li><a href="/retete?tip=tropicale">Tropicale</a></li>
-                <li><a href="/retete?tip=pentru_petreceri">Pentru petreceri</a></li> -->
             </ul>
         </li> 
         <li><a href="/tips-n-tricks">Tips & Tricks</a>
@@ -48,6 +43,9 @@
         </li>
         <li><a href="#Chestionar">Cocktailul potrivit</a></li>
         <li><a href="/galerie">Galerie</a></li>
-
+        <div class="form-check form-switch m-2" id="schimba_tema">
+            <input class="form-check-input" type="checkbox" >
+            <label class="form-check-label"><i class="fas fa-sun"></i></label>
+        </div>
     </ul>
 </nav>

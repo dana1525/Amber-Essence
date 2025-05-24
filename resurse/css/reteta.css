@@ -1,0 +1,93 @@
+#art-reteta {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color10);
+}
+
+/* Titlu articol */
+#art-reteta h3 {
+    text-align: center;
+}
+
+/* Container flex pentru tabel + imagine */
+#art-reteta > div {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: flex-start;  /* tabel în stânga, imagine în dreapta */
+    flex-wrap: nowrap;  /* să nu se rupă pe rânduri */
+}
+
+/* Tabel caracteristici */
+#art-reteta table {
+    border-collapse: collapse;
+    width: 60%;
+    min-width: 280px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Celule tabel */
+#art-reteta td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--color4);
+    font-weight: 600;
+}
+
+/* Prima coloană (nume caracteristică) */
+#art-reteta td:first-child {
+    width: 45%;
+}
+
+/* Imaginea */
+.imag-reteta {
+    width: 35%;
+    max-width: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+    flex-shrink: 0;  /* să nu se micșoreze sub lățimea setată */
+}
+
+.imag-reteta img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Descriere */
+#art-reteta .descriere {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Responsivitate */
+@media screen and (max-width: 700px) {
+    #art-reteta {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    #art-reteta > div {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    #art-reteta table {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .imag-reteta {
+        width: 60%;
+        max-width: none;
+        margin-top: 1rem;
+        flex-shrink: initial;
+    }
+}

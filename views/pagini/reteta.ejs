@@ -5,8 +5,8 @@
         <meta name="keywords" content="cocktail, rețete cocktailuri, mixologie, alcool, mocktail, tehnici preparare, bar acasă, sfaturi mixologie">
         
         <title>Amber & Essence</title>
-        <%- include("../fragmente/head") %>     
         <link href="/resurse/css/reteta.css" type="text/css" rel="stylesheet" />
+        <%- include("../fragmente/head") %>     
     </head>
     <body>
 
@@ -31,6 +31,9 @@
                 <!-- <h2>Pagină rețetă -->
                     <article id="art-reteta">
                         <h2><span class="nume"><%- locals.ret.nume %></span></h2>
+                        <p class="descriere" style="margin-top: 1rem;">
+                            <strong><%= locals.ret.descriere %></strong>
+                        </p>
                         <div>
                             <table>
                                 <tr>
@@ -75,10 +78,7 @@
                                 <img  src="/resurse/imagini/retete/<%- locals.ret.imagine %>" alt="[imagine <%- locals.ret.nume %>]" />
                             </figure>    
                         </div>
-                        <p class="descriere" style="margin-top: 1rem;">
-                            <strong><%= locals.ret.descriere %></strong>
-                        </p>
-
+                        
                     </article>
                 
             </section>

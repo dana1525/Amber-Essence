@@ -1,49 +1,117 @@
 $custom-font: 'Segoe UI', system-ui, -apple-system, sans-serif;
 
+$color-primary: #b13f0ee5;
+$color-secondary: #852f0a;
+$color-text: #5A1107;
+$color-body-bg: #f5cfa7;
+$color-light: #F9E1C0;
+$color-light-subtle: #EEC5A2;
+
+$color-range-track: #edb86f;
+$color-range-thumb: #b13f0e;
+$color-border-focus: rgba(154, 53, 10, 0.25);
+$color-border-default: rgba(177, 63, 14, 0.4);
+$color-card-border: rgba(146, 46, 2, 0.7);
+
+$btn-border-radius: 10px;
+$btn-border-width: 2px;
+$input-border-radius: 8px;
+$card-border-radius: 10px;
+
+// input range
+$form-range-thumb-width: 1.5rem;
+$form-range-thumb-height: 1.5rem;
+$form-range-thumb-bg: $color-range-thumb;
+$form-range-track-bg: $color-range-track;
+
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
-    $primary: #E8A03C,
-    $secondary: #CE6910,
-    $info: #5A1107,
-    $body-bg: #FFF4E8,
-    $light: #F9E1C0,
-    $light-bg-subtle: #EEC5A2,
+  $primary: $color-primary,
+  $secondary: $color-secondary,
+  $info: $color-text,
+  $body-bg: $color-body-bg,
+  $light: $color-light,
+  $light-bg-subtle: $color-light-subtle,
 
-    $font-family-base: $custom-font,
-    // $body-color: #4D210F,
-    $link-color: #5A1107,
+  $font-family-base: $custom-font,
+  $link-color: $color-text,
 
-    $border-radius: 15px,
+  $border-radius: $btn-border-radius,
+  $input-border-radius: $input-border-radius,
+  $card-border-radius: $card-border-radius,
 
-    $btn-padding-y: 1rem,
-    
-    $display-font-sizes: (
-        1: 5rem,
-        2: 4.5rem,
-        3: 4rem,
-        4: 3.5rem,
-        5: 3rem,
-        6: 2.5rem
-    ),
+  $btn-padding-y: 0.8rem,
+  $btn-padding-x: 1.5rem,
+
+  $display-font-sizes: (
+    1: 5rem,
+    2: 4.5rem,
+    3: 4rem,
+    4: 3.5rem,
+    5: 3rem,
+    6: 2.5rem
+  )
 );
 
-.custom-text{
-    color: #28272E;
-  }
-
-.btn {
-    // color: bootstrap.$info;
-    border-radius: bootstrap.$border-radius;
+.custom-text {
+  color: $color-text;
 }
 
-    
-@media (min-width: 768px) {
-    .custom-heading {
-      font-size: 2.5rem;
+.btn-custom {
+  border-width: $btn-border-width;
+  border-radius: $btn-border-radius;
+  border-style: solid;
+  border-color: $color-text;
+  font-weight: 600;
+  min-width: 200px;
+
+  &.btn-primary {
+    background-color: $color-primary;
+    border-color: $color-primary;
+    // color: white;
+
+    &:hover {
+      background-color: darken($color-primary, 10%);
+      border-color: darken($color-primary, 10%);
     }
   }
-  
-  @media (min-width: 1200px) {
-    .custom-heading {
-      font-size: 4rem;
+
+  &.btn-secondary {
+    background-color: $color-secondary;
+    border-color: $color-secondary;
+    // color: white;
+
+    &:hover {
+      background-color: darken($color-secondary, 10%);
+      border-color: darken($color-secondary, 10%);
     }
   }
+}
+
+.form-control, .form-select, .form-range {
+  border-width: $btn-border-width;
+  border-radius: $input-border-radius;
+  background-color: rgba($color-range-track, 0.7);
+  border: 3px solid $color-border-default;
+
+  &:focus {
+    background-color: rgba($color-range-track, 0.7);
+    border-color: $color-primary;
+    box-shadow: 0 0 0 0.25rem $color-border-focus;
+  }
+}
+
+.card {
+  transition: box-shadow 0.2s ease;
+  border: 10px solid $color-card-border;
+
+  &:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 767.9px) {
+  .btn-text {
+    display: none;
+  }
+}
+

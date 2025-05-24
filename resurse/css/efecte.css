@@ -84,14 +84,14 @@
     background-color: var(--color5);
 }
 
-
+/* 
 body.retete_css{
     background-image: url(../imagini/background-img.png);
     background-attachment: fixed;
     background-size: cover;
     transition: background-image 1s;
     animation: changeBackground 5s infinite;
-  }
+  } */
 
 @keyframes changeBackground {
     0%, 45%{

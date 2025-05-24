@@ -180,6 +180,15 @@ window.onload = function(){
         }
     }
 
+    let textarea = document.getElementById("inp-filtru-textarea");
+    textarea.addEventListener("input", () => {
+        let valoare = textarea.value.trim();
+        if(valoare !== "" && (valoare.length < 3 || !/[a-zA-ZăîâșțĂÎÂȘȚ]/.test(valoare)))
+            textarea.classList.add("is-invalid");
+        else
+            textarea.classList.remove("is-invalid");
+    })
+
     // Afisare timp minim la combinatia ALT + C (pentru retetele vizibile)
     window.onkeydown=function(e){
         // console.log(e)
