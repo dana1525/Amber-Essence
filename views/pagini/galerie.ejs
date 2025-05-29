@@ -18,7 +18,7 @@
         
         <%- include("../fragmente/galerie-stat-content.ejs")  %>
 
-        <section>
+        <section id="section-galerie-animata">
             <h2>Tipuri de alcool</h2>
             <div id="galerie-animata">
                 <div class="viewport">
@@ -34,214 +34,215 @@
             </div>
         </section>
 
-<!--<script>-->
-<!--    document.addEventListener('DOMContentLoaded', () => {-->
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
 
-<!--        const galerie = document.querySelector('#galerie-animata .grid');-->
-<!--        const figuri = Array.from(galerie.querySelectorAll('figure'));-->
-<!--  -->
-<!--        const configuratii = [{ randuri: 3, coloane: 3 }, { randuri: 4, coloane: 3 }, { randuri: 5, coloane: 3 }];-->
-<!--        const { randuri, coloane } = configuratii[Math.floor(Math.random() * 3)];-->
-<!--        const numImagini = randuri * coloane;-->
+       const galerie = document.querySelector('#galerie-animata .grid');
+       const figuri = Array.from(galerie.querySelectorAll('figure'));
 
-<!--        //config grid-->
-<!--        galerie.style.gridTemplateColumns = `repeat(${coloane}, 500px)`;-->
-<!--        galerie.style.gridTemplateRows = `repeat(${randuri}, 370px)`;-->
+       const configuratii = [{ randuri: 3, coloane: 3 }, { randuri: 4, coloane: 3 }, { randuri: 5, coloane: 3 }];
+       const { randuri, coloane } = configuratii[Math.floor(Math.random() * 3)];
+       const numImagini = randuri * coloane;
 
-<!--        let ordine;-->
-<!--        if (numImagini === 9) ordine = [0, 1, 2, 5, 8, 7, 6, 3, 4];-->
-<!--        else if (numImagini === 12) ordine = [0, 1, 2, 5, 8, 11, 10, 9, 6, 3, 4, 7];-->
-<!--        else ordine = [0, 1, 2, 5, 8, 11, 14, 13, 12, 9, 6, 3, 4, 7, 10];-->
+       //config grid
+       galerie.style.gridTemplateColumns = `repeat(${coloane}, 500px)`;
+       galerie.style.gridTemplateRows = `repeat(${randuri}, 370px)`;
 
-<!--        let indexCurent = 0, pePauza = false, rotatiiTotale = 0, animatieCurenta = null;-->
-<!--  -->
-<!--        function arataPozitia(index) {-->
-<!--            const pozitia = ordine[index], rand = Math.floor(pozitia / coloane), coloana = pozitia % coloane;-->
-<!--            const translateX = -(coloana * 500), translateY = -(rand * 370);-->
-<!--            -->
-<!--            return { translateX, translateY };-->
-<!--        }-->
-<!--        -->
-<!--        function creeazaAnimatie(keyframes, options) {-->
-<!--            //anulare animatie curenta-->
-<!--            if (animatieCurenta) {-->
-<!--                const computedStyle = window.getComputedStyle(galerie);-->
-<!--                const currentTransform = computedStyle.transform;-->
-<!--                if (currentTransform && currentTransform !== 'none')-->
-<!--                    galerie.style.transform = currentTransform; -->
-<!--                animatieCurenta.cancel();-->
-<!--            }-->
-<!--            -->
-<!--            //noua animație-->
-<!--            animatieCurenta = galerie.animate(keyframes, options);-->
-<!--            animatieCurenta.onfinish = () => {-->
-<!--            const lastKeyframe = keyframes[keyframes.length - 1];-->
-<!--            if (lastKeyframe.transform)-->
-<!--                galerie.style.transform = lastKeyframe.transform;-->
-<!--            };-->
-<!--            -->
-<!--            return animatieCurenta;-->
-<!--        }-->
-<!--        -->
-<!--        let timerAnimatie = null, fazaAnimatie = 'translatie';-->
-<!--        let timpStartFaza = 0, timpTrecut = 0;-->
-<!--        -->
-<!--        async function urmatoareaImagine() {-->
-<!--            if (pePauza) return;-->
-<!--            -->
-<!--            const { translateX, translateY } = arataPozitia(indexCurent);-->
-<!--            -->
-<!--            // Setează punctul de origine pentru rotație-->
-<!--            const pozActuala = ordine[indexCurent];-->
-<!--            const rand = Math.floor(pozActuala / coloane);-->
-<!--            const coloana = pozActuala % coloane;-->
-<!--            const originX = (coloana + 0.5) * 500;-->
-<!--            const originY = (rand + 0.5) * 370;-->
-<!--            galerie.style.transformOrigin = `${originX}px ${originY}px`;-->
-<!--            -->
-<!--            switch (fazaAnimatie) {-->
-<!--            case 'translatie':-->
-<!--                timpStartFaza = performance.now();-->
-<!--                fazaAnimatie = 'translatie';-->
-<!--                -->
-<!--                let animatie = creeazaAnimatie([-->
-<!--                { transform: galerie.style.transform || `translate(0px, 0px) rotate(${rotatiiTotale}deg)` },-->
-<!--                { transform: `translate(${translateX}px, ${translateY}px) rotate(${rotatiiTotale}deg)` }-->
-<!--                ], {duration: 800, fill: 'forwards'});-->
-<!--                -->
-<!--                await animatie.finished;-->
-<!--                if (pePauza) return;-->
-<!--                -->
-<!--                //faza de așteptare-->
-<!--                fazaAnimatie = 'asteptare1';-->
-<!--                timpStartFaza = performance.now();-->
-<!--                timerAnimatie = setTimeout(async () => {-->
-<!--                    if (pePauza) return;-->
-<!--                    -->
-<!--                    //faza de rotație-->
-<!--                    fazaAnimatie = 'rotatie';-->
-<!--                    timpStartFaza = performance.now();-->
-<!--                    -->
-<!--                    //rotație 360 grade-->
-<!--                    rotatiiTotale += 360;-->
-<!--                    animatie = creeazaAnimatie([-->
-<!--                    { transform: `translate(${translateX}px, ${translateY}px) rotate(${rotatiiTotale - 360}deg)` },-->
-<!--                    { transform: `translate(${translateX}px, ${translateY}px) rotate(${rotatiiTotale}deg)` }-->
-<!--                    ], {-->
-<!--                    duration: 1200, fill: 'forwards'});-->
-<!--                    -->
-<!--                    await animatie.finished;-->
-<!--                    if (pePauza) return;-->
-<!--                    -->
-<!--                    //a doua fază de așteptare-->
-<!--                    fazaAnimatie = 'asteptare2';-->
-<!--                    timpStartFaza = performance.now();-->
-<!--                    timerAnimatie = setTimeout(() => {-->
-<!--                        if (pePauza) return;-->
-<!--                        -->
-<!--                        //următoarea imagine și resetăm faza-->
-<!--                        indexCurent = (indexCurent + 1) % ordine.length;-->
-<!--                        fazaAnimatie = 'translatie';-->
-<!--                        urmatoareaImagine();-->
-<!--                    }, 500);-->
-<!--                }, 800);-->
-<!--                break;-->
-<!--                -->
-<!--            case 'asteptare1':-->
-<!--                //cât timp a trecut din timpul de așteptare-->
-<!--                timpTrecut = performance.now() - timpStartFaza;-->
-<!--                if (timpTrecut < 800) {-->
-<!--                //așteptare pentru restul timpului-->
-<!--                timerAnimatie = setTimeout(() => {-->
-<!--                    fazaAnimatie = 'rotatie';-->
-<!--                    urmatoareaImagine();-->
-<!--                }, 800 - timpTrecut);-->
-<!--                } else {-->
-<!--                //direct la rotație-->
-<!--                fazaAnimatie = 'rotatie';-->
-<!--                urmatoareaImagine();-->
-<!--                }-->
-<!--                break;-->
-<!--                -->
-<!--            case 'rotatie':-->
-<!--                //rotație 360 grade continuând de unde am rămas-->
-<!--                timpStartFaza = performance.now();-->
-<!--                -->
-<!--                animatie = creeazaAnimatie([-->
-<!--                { transform: galerie.style.transform },-->
-<!--                { transform: `translate(${translateX}px, ${translateY}px) rotate(${rotatiiTotale}deg)` }-->
-<!--                ], {-->
-<!--                duration: 1200, fill: 'forwards'});-->
-<!--                -->
-<!--                await animatie.finished;-->
-<!--                if (pePauza) return;-->
-<!--                -->
-<!--                // a doua fază de așteptare-->
-<!--                fazaAnimatie = 'asteptare2';-->
-<!--                timpStartFaza = performance.now();-->
-<!--                timerAnimatie = setTimeout(() => {-->
-<!--                    if (pePauza) return;-->
-<!--                    -->
-<!--                    // următoarea imagine și resetăm faza-->
-<!--                    indexCurent = (indexCurent + 1) % ordine.length;-->
-<!--                    fazaAnimatie = 'translatie';-->
-<!--                    urmatoareaImagine();-->
-<!--                }, 500);-->
-<!--                break;-->
-<!--                -->
-<!--            case 'asteptare2':-->
-<!--                //cât timp a trecut din timpul de așteptare-->
-<!--                timpTrecut = performance.now() - timpStartFaza;-->
-<!--                if (timpTrecut < 500) {-->
-<!--                //așteptarea pentru restul timpului-->
-<!--                timerAnimatie = setTimeout(() => {-->
-<!--                    indexCurent = (indexCurent + 1) % ordine.length;-->
-<!--                    fazaAnimatie = 'translatie';-->
-<!--                    urmatoareaImagine();-->
-<!--                }, 500 - timpTrecut);-->
-<!--                } else {-->
-<!--                //următoarea imagine-->
-<!--                indexCurent = (indexCurent + 1) % ordine.length;-->
-<!--                fazaAnimatie = 'translatie';-->
-<!--                urmatoareaImagine();-->
-<!--                }-->
-<!--                break;-->
-<!--            }-->
-<!--        }-->
-<!--        -->
-<!--        function pornesteAnimatia() {-->
-<!--            if (pePauza) {-->
-<!--                pePauza = false;-->
-<!--            -->
-<!--                if (animatieCurenta && animatieCurenta.playState === 'paused')-->
-<!--                    animatieCurenta.play();-->
-<!--                else urmatoareaImagine();-->
-<!--            }-->
-<!--        }-->
-<!--        -->
-<!--        function opresteAnimatia() {-->
-<!--            pePauza = true;-->
-<!--            -->
-<!--            //anulare orice timeout programat-->
-<!--            if (timerAnimatie) {-->
-<!--                clearTimeout(timerAnimatie);-->
-<!--                timerAnimatie = null;-->
-<!--            }-->
-<!--            -->
-<!--            if (animatieCurenta && animatieCurenta.playState === 'running') {-->
-<!--                animatieCurenta.pause();-->
-<!--                timpTrecut = performance.now() - timpStartFaza;-->
-<!--            }-->
-<!--        }-->
-<!--        -->
-<!--        document.querySelector('#galerie-animata').addEventListener('mouseenter', opresteAnimatia);-->
-<!--        document.querySelector('#galerie-animata').addEventListener('mouseleave', pornesteAnimatia);-->
-<!--        -->
-<!--        pePauza = false;-->
-<!--        fazaAnimatie = 'translatie';-->
-<!--        setTimeout(() => {urmatoareaImagine();}, 100);-->
-<!--});-->
-<!--</script>-->
+       let ordine;
+       if (numImagini === 9) ordine = [0, 1, 2, 5, 8, 7, 6, 3, 4];
+       else if (numImagini === 12) ordine = [0, 1, 2, 5, 8, 11, 10, 9, 6, 3, 4, 7];
+       else ordine = [0, 1, 2, 5, 8, 11, 14, 13, 12, 9, 6, 3, 4, 7, 10];
+
+       let indexCurent = 0, pePauza = false, rotatiiTotale = 0, animatieCurenta = null;
+
+       function arataPozitia(index) {
+           const pozitia = ordine[index], rand = Math.floor(pozitia / coloane), coloana = pozitia % coloane;
+           const translateX = -(coloana * 500), translateY = -(rand * 370);
+          
+           return { translateX, translateY };
+       }
+      
+       function creeazaAnimatie(keyframes, options) {
+           //anulare animatie curenta
+           if (animatieCurenta) {
+               const computedStyle = window.getComputedStyle(galerie);
+               const currentTransform = computedStyle.transform;
+               if (currentTransform && currentTransform !== 'none')
+                   galerie.style.transform = currentTransform;
+               animatieCurenta.cancel();
+           }
+          
+           //noua animație
+           animatieCurenta = galerie.animate(keyframes, options);
+           animatieCurenta.onfinish = () => {
+           const lastKeyframe = keyframes[keyframes.length - 1];
+           if (lastKeyframe.transform)
+               galerie.style.transform = lastKeyframe.transform;
+           };
+          
+           return animatieCurenta;
+       }
+      
+       let timerAnimatie = null, fazaAnimatie = 'translatie';
+       let timpStartFaza = 0, timpTrecut = 0;
+      
+       async function urmatoareaImagine() {
+           if (pePauza) return;
+          
+           const { translateX, translateY } = arataPozitia(indexCurent);
+          
+           // Setează punctul de origine pentru rotație
+           const pozActuala = ordine[indexCurent];
+           const rand = Math.floor(pozActuala / coloane);
+           const coloana = pozActuala % coloane;
+           const originX = (coloana + 0.5) * 500;
+           const originY = (rand + 0.5) * 370;
+           galerie.style.transformOrigin = `${originX}px ${originY}px`;
+          
+           switch (fazaAnimatie) {
+           case 'translatie':
+               timpStartFaza = performance.now();
+               fazaAnimatie = 'translatie';
+              
+               let animatie = creeazaAnimatie([
+               { transform: galerie.style.transform || `translate(0px, 0px) rotate(${rotatiiTotale}deg)` },
+               { transform: `translate(${translateX}px, ${translateY}px) rotate(${rotatiiTotale}deg)` }
+               ], {duration: 800, fill: 'forwards'});
+              
+               await animatie.finished;
+               if (pePauza) return;
+              
+               //faza de așteptare
+               fazaAnimatie = 'asteptare1';
+               timpStartFaza = performance.now();
+               timerAnimatie = setTimeout(async () => {
+                   if (pePauza) return;
+                  
+                   //faza de rotație
+                   fazaAnimatie = 'rotatie';
+                   timpStartFaza = performance.now();
+                  
+                   //rotație 360 grade
+                   rotatiiTotale += 360;
+                   animatie = creeazaAnimatie([
+                   { transform: `translate(${translateX}px, ${translateY}px) rotate(${rotatiiTotale - 360}deg)` },
+                   { transform: `translate(${translateX}px, ${translateY}px) rotate(${rotatiiTotale}deg)` }
+                   ], {
+                   duration: 1200, fill: 'forwards'});
+                  
+                   await animatie.finished;
+                   if (pePauza) return;
+                  
+                   //a doua fază de așteptare
+                   fazaAnimatie = 'asteptare2';
+                   timpStartFaza = performance.now();
+                   timerAnimatie = setTimeout(() => {
+                       if (pePauza) return;
+                      
+                       //următoarea imagine și resetăm faza
+                       indexCurent = (indexCurent + 1) % ordine.length;
+                       fazaAnimatie = 'translatie';
+                       urmatoareaImagine();
+                   }, 500);
+               }, 800);
+               break;
+              
+           case 'asteptare1':
+               //cât timp a trecut din timpul de așteptare
+               timpTrecut = performance.now() - timpStartFaza;
+               if (timpTrecut < 800) {
+               //așteptare pentru restul timpului
+               timerAnimatie = setTimeout(() => {
+                   fazaAnimatie = 'rotatie';
+                   urmatoareaImagine();
+               }, 800 - timpTrecut);
+               } else {
+               //direct la rotație
+               fazaAnimatie = 'rotatie';
+               urmatoareaImagine();
+               }
+               break;
+              
+           case 'rotatie':
+               //rotație 360 grade continuând de unde am rămas
+               timpStartFaza = performance.now();
+              
+               animatie = creeazaAnimatie([
+               { transform: galerie.style.transform },
+               { transform: `translate(${translateX}px, ${translateY}px) rotate(${rotatiiTotale}deg)` }
+               ], {
+               duration: 1200, fill: 'forwards'});
+              
+               await animatie.finished;
+               if (pePauza) return;
+              
+               // a doua fază de așteptare
+               fazaAnimatie = 'asteptare2';
+               timpStartFaza = performance.now();
+               timerAnimatie = setTimeout(() => {
+                   if (pePauza) return;
+                  
+                   // următoarea imagine și resetăm faza
+                   indexCurent = (indexCurent + 1) % ordine.length;
+                   fazaAnimatie = 'translatie';
+                   urmatoareaImagine();
+               }, 500);
+               break;
+              
+           case 'asteptare2':
+               //cât timp a trecut din timpul de așteptare
+               timpTrecut = performance.now() - timpStartFaza;
+               if (timpTrecut < 500) {
+               //așteptarea pentru restul timpului
+               timerAnimatie = setTimeout(() => {
+                   indexCurent = (indexCurent + 1) % ordine.length;
+                   fazaAnimatie = 'translatie';
+                   urmatoareaImagine();
+               }, 500 - timpTrecut);
+               } else {
+               //următoarea imagine
+               indexCurent = (indexCurent + 1) % ordine.length;
+               fazaAnimatie = 'translatie';
+               urmatoareaImagine();
+               }
+               break;
+           }
+       }
+      
+       function pornesteAnimatia() {
+           if (pePauza) {
+               pePauza = false;
+          
+               if (animatieCurenta && animatieCurenta.playState === 'paused')
+                   animatieCurenta.play();
+               else urmatoareaImagine();
+           }
+       }
+      
+       function opresteAnimatia() {
+           pePauza = true;
+          
+           //anulare orice timeout programat
+           if (timerAnimatie) {
+               clearTimeout(timerAnimatie);
+               timerAnimatie = null;
+           }
+          
+           if (animatieCurenta && animatieCurenta.playState === 'running') {
+               animatieCurenta.pause();
+               timpTrecut = performance.now() - timpStartFaza;
+           }
+       }
+      
+       document.querySelector('#galerie-animata').addEventListener('mouseenter', opresteAnimatia);
+       document.querySelector('#galerie-animata').addEventListener('mouseleave', pornesteAnimatia);
+      
+       pePauza = false;
+       fazaAnimatie = 'translatie';
+       setTimeout(() => {urmatoareaImagine();}, 100);
+});
+</script>
+
 <%- include("../fragmente/footer.ejs")  %>
         </main>
     </body>

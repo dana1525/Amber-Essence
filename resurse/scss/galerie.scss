@@ -1,4 +1,8 @@
 
+#galerie-statica{
+    margin-top: 30px;
+}
+
 #gr {
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -73,10 +77,16 @@
     }
 }
 
+#section-galerie-animata{
+    margin-top: 30px;
+}
+
 #galerie-animata {
     width: 500px; //dimensiunea vizibila a galeriei
-    height: 370px;
-    overflow: hidden; //se ascund restul imaginilor diin grid
+    height: 390px;
+    overflow: hidden; //se ascund restul imaginilor din grid
+    border: 10px solid transparent; // transparent pentru a vedea gradientul
+    border-image: linear-gradient(45deg, #d77a11, #a94a13) 1;
     .viewport {
         width: 100%; //dimensiunea completa a galerie
         height: 100%;

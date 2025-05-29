@@ -29,7 +29,7 @@
                 <li><a href="/retete">Toate</a></li>
 
                 <% for(let opt of locals.optiuniMeniu){ %>
-                    <li><a href="/retete?categ=<%= opt.unnest %>"><%= opt.unnest %></a></li>   
+                    <li><a href="/retete?categ=<%= opt.unnest %>"><%= opt.unnest[0].toUpperCase() + opt.unnest.replace(/_/g, ' ').slice(1) %></a></li>   
                     <!-- = afiseaza ce urmeaza -->
                 <% } %>
             </ul>

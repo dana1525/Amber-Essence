@@ -218,15 +218,15 @@
                         <div class="info-ret">
                             <p class="timp_prep">Timp preparare: <span class="val-timp_prep"><%- ret.timp_prep%> minute</span></p>
                             <br/>
-                            <p class="vegan">Vegan: <span class="val-vegan"><%- ret.vegan %></span></p>
-                            <p class="contine_alcool">Cu alcool? <span class="val-contine_alcool"><%- ret.contine_alcool %></span></p>
+                            <p class="vegan">Vegan: <span class="val-vegan"><%- ret.vegan ? "Da" : "Nu" %></span></p>
+                            <p class="contine_alcool">Cu alcool: <span class="val-contine_alcool"><%- ret.contine_alcool ? "Da" : "Nu"%></span></p>
                         </div>
                         <p class="categorie">Categorie: <span class="val-categorie"><%- ret.categorie%></span></p>
                         <p class="baza">Bază alcoolică: <span class="val-baza"><%- ret.baza%></span></p>
                         <p class="stil">Stil servire: <span class="val-stil"><%- ret.stil%></span></p>
-                        <figure>
+                        <!-- <figure>
                             <a href="/reteta/<%-ret.id %>" ><img src="/resurse/imagini/retete/<%- ret.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- ret.nume %>]" /></a>
-                        </figure>
+                        </figure> -->
                         <label class="selecteaza-cos">
                             Selectează:<br/>
                             <input type="checkbox" class="select-cos" value="<%-ret.id %>" autocomplete="off">

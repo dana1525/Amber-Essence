@@ -1,3 +1,7 @@
+#galerie-statica {
+  margin-top: 30px;
+}
+
 #gr {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -76,10 +80,16 @@
     display: none;
   }
 }
+#section-galerie-animata {
+  margin-top: 30px;
+}
+
 #galerie-animata {
   width: 500px;
-  height: 370px;
+  height: 390px;
   overflow: hidden;
+  border: 10px solid transparent;
+  border-image: linear-gradient(45deg, #d77a11, #a94a13) 1;
 }
 #galerie-animata .viewport {
   width: 100%;
