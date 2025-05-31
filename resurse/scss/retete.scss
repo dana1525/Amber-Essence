@@ -1,0 +1,86 @@
+.grid-retete {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    .reteta {
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        background: var(--color9);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        margin: 1rem 0 0.5rem;
+        h3 {
+            background-color: var(--color2);
+            margin: 0;
+            padding: 1rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+            a {
+                color: var(--color10);
+            }
+        }
+        .info-ret {
+            display: flex;
+            justify-content: space-around;
+            background-color: var(--color2);
+            background: #ffcc99;
+            padding: 0.4rem;
+            font-size: 0.9rem;
+        }
+        p.categorie {
+            text-align: center;
+            font-weight: bold;
+            color: var(--color5);
+            margin: 1rem 0 0.5rem;
+            }
+        figure {
+            text-align: center;
+            margin: 1rem 0;
+            }
+        &.fixa {
+            border: 3px solid var(--color2);
+            background-color: var(--color9);
+        }
+        &:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+
+.selecteaza-cos {
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.alt-col-12{
+  text-align: center;
+}
+
+.paginare {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--color5);
+    &> *{
+        margin: 0 1rem;
+    }
+    button{
+        background-color: var(--color1);
+    }
+}
+
+.btn-fixeaza.active {
+    background-color: var(--color2);
+    color: var(--color1);
+}
+
+#mesaj-nu-exista{
+    display: none;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-align: center;
+}

@@ -34,21 +34,75 @@ function valideazaInputuri() {
     return valid;
 }
 
-
 let retete;
 let reteteInitiale;
 
+let reteteFixate = new Set(
+    JSON.parse(localStorage.getItem("reteteFixate") || "[]")
+);
+let reteteAscunseTemporar = new Set();
+let reteteStersePermanent = new Set(
+    JSON.parse(sessionStorage.getItem("reteteStersePermanent") || "[]")
+);
+
+let paginaCurenta = 1;
+let retetePePagina = 6;
+
 window.onload = function(){
+    document.querySelectorAll(".btn-fixeaza").forEach(btn => {
+        btn.addEventListener("click", function(){
+            let reteta = btn.closest(".reteta");
+            let id = reteta.querySelector("a").getAttribute("href").split("/").pop();
+
+            if(reteteFixate.has(id)){
+                reteteFixate.delete(id);
+                btn.classList.remove("active");
+                reteta.classList.remove("fixa");
+            } else {
+                reteteFixate.add(id);
+                btn.classList.add("active");
+                reteta.classList.add("fixa");
+            }
+            localStorage.setItem("reteteFixate", JSON.stringify(Array.from(reteteFixate)));
+            afiseazaPagina(paginaCurenta);
+        })
+    });
+
+    // Ascundere temporara reteta
+    let btnAscundeTemporar = document.querySelectorAll(".btn-ascunde-temporar");
+    btnAscundeTemporar.forEach(btn => {
+        btn.addEventListener("click", function(){
+            let reteta = btn.closest(".reteta");
+            let id = reteta.querySelector("a").getAttribute("href").split("/").pop();
+            reteteAscunseTemporar.add(id);
+            afiseazaPagina(paginaCurenta);
+        })
+    });
+
+    // Stergere permanenta din sesiune
+    document.querySelectorAll(".btn-sterge-permanent").forEach(btn => {
+        btn.addEventListener("click", function() {
+            let reteta = btn.closest(".reteta");
+            let id = reteta.querySelector("a").getAttribute("href").split("/").pop();
+
+            // Adaugaare in set si in sessionStorage
+            reteteStersePermanent.add(id);
+            sessionStorage.setItem("reteteStersePermanent", JSON.stringify([...reteteStersePermanent]));
+
+            reteta.style.display = "none";
+        });
+    });
+
+
     // Colectare elemente cu clasa reteta
     retete = document.getElementsByClassName("reteta");
     reteteInitiale = Array.from(retete);
 
     // Buton de filtrare
-    btn = document.getElementById("filtrare");
+    let reteteFiltrate = [];
 
-    btn.onclick = function(){
-
-        // Preluare valori din inputuri
+    function filtreazaRetete(){
+    // Preluare valori din inputuri
         let inpNume = document.getElementById("inp-nume").value.trim().toLowerCase();
         let inpAlcoolic = document.querySelector('input[name="gr_rad"]:checked').value;
         let inpTimp = document.getElementById("inp-timp_prep").value;
@@ -59,17 +113,31 @@ window.onload = function(){
         let arrServire = Array.from(document.querySelectorAll("#inp-servire option:checked")).map(opt => opt.value.trim().toLowerCase());
         let inpVegan = document.getElementById('chk-vegan').checked;
 
-        if(!valideazaInputuri()) return;
+        if(!valideazaInputuri()) return[];
+
+        let rezultate = [];
 
         // Aplicare filtre
         for(let ret of retete){
-            ret.style.display = "none";
+            let id = ret.querySelector("a").getAttribute("href").split("/").pop();
+            if(reteteFixate.has(id)){
+                // ret.style.display = "block";
+                ret.classList.add("fixa");
+                continue;
+            }
+            if (reteteAscunseTemporar.has(id)) {
+                continue;
+            }
+            if (reteteStersePermanent.has(id)) {
+                ret.style.display = "none";
+                continue;
+            }
 
             let nume = ret.getElementsByClassName("val-nume")[0].innerHTML.trim().toLowerCase(); //numele fiecarei retete (un vector cu un sg element)
             let cond1 = inpNume == "" || nume.includes(inpNume)
 
-            let areAlcool = ret.querySelector(".val-contine_alcool").textContent.trim().toLowerCase();
-            let cond2 = (inpAlcoolic == "toate") || (inpAlcoolic == areAlcool);
+            let areAlcool = ret.querySelector(".val-contine_alcool").textContent.trim().toLowerCase();        
+            let cond2 = (inpAlcoolic === "toate") || (inpAlcoolic === areAlcool.trim().toLowerCase());
 
             let timp_prep = parseFloat(ret.getElementsByClassName("val-timp_prep")[0].innerHTML.trim()); //din string in float
             let cond3 = (timp_prep <= inpTimp || inpTimp == 0)
@@ -107,11 +175,98 @@ window.onload = function(){
 
             // Afisare reteta daca toate conditiile sunt indeplinite
             if(cond1 && cond2 && cond3 && cond4 && cond5 && cond6  && cond7 && cond8){
-                ret.style.display = "block";
+                rezultate.push(ret);
             }
         }
 
+        // Retetele fixate întotdeauna afisate, se adauga in lista finala
+        let fixateArr = [];
+        for(let ret of retete){
+            let id = ret.querySelector("a").getAttribute("href").split("/").pop();
+            if(reteteFixate.has(id)){
+                fixateArr.push(ret);
+            }
+        }
+
+        // Combinare fixate + filtrate (farr duplicate)
+        let toateRetetele = [...new Set([...fixateArr, ...rezultate])];
+
+        // Daca nu exista retete
+        if(toateRetetele.length === 0){
+            document.getElementById("mesaj-nu-exista").style.display = "block";
+        } else {
+            document.getElementById("mesaj-nu-exista").style.display = "none";
+        }
+
+        return toateRetetele;
     }
+
+    function afiseazaPagina(numarPagina){
+        paginaCurenta = numarPagina;
+
+        document.getElementById("paginaCurenta").textContent = paginaCurenta;
+
+        for(let ret of reteteInitiale){
+            ret.style.display = "none";
+        }
+
+        // Filtrare retete actuale
+        reteteFiltrate = filtreazaRetete();
+
+        // Numar total de pagini
+        let nrPagini = Math.ceil(reteteFiltrate.length / retetePePagina);
+        if (nrPagini === 0) nrPagini = 1;
+        if(paginaCurenta > nrPagini) paginaCurenta = nrPagini;
+        if(paginaCurenta < 1) paginaCurenta = 1;
+
+        // Determinare indecsi pentru afisare
+        let startIdx = (paginaCurenta-1) * retetePePagina;
+        let endIdx = startIdx + retetePePagina;
+
+        // Afisare doar retete din pagina curenta
+        for(let i = 0; i < reteteFiltrate.length; i++){
+            if(i >= startIdx && i < endIdx){
+                reteteFiltrate[i].style.display = "block";
+            } else {
+                reteteFiltrate[i].style.display = "none";
+            }
+        }
+
+        // Retetele fixate afisate mereu (ignorand paginatia)
+        for(let ret of retete){
+            let id = ret.querySelector("a").getAttribute("href").split("/").pop();
+            if(reteteFixate.has(id)){
+                ret.style.display = "block";
+            }
+        }
+    }
+
+    // Buton filtrare
+    document.getElementById("filtrare").onclick = function(){
+        paginaCurenta = 1; // Resetare la pagina 1 la fiecare filtrare
+        afiseazaPagina(paginaCurenta);
+    }
+
+    document.getElementById("btnPrev").onclick = function(){
+        if(paginaCurenta > 1){
+            paginaCurenta--;
+            afiseazaPagina(paginaCurenta);
+        }
+    }
+
+    document.getElementById("btnNext").onclick = function(){
+        // recalculare nrPagini
+        reteteFiltrate = filtreazaRetete();
+        let nrPagini = Math.ceil(reteteFiltrate.length / retetePePagina);
+        if(paginaCurenta < nrPagini){
+            paginaCurenta++;
+            afiseazaPagina(paginaCurenta);
+        }
+    }
+
+    // La încărcare, afisare pagina 1
+    afiseazaPagina(1);
+
 
     // Actualizare in timp real a valorii slider-ului pentru timp
     document.getElementById("inp-timp_prep").onmousemove = function(){
@@ -136,8 +291,22 @@ window.onload = function(){
         let container = reteteInitiale[0].parentNode;
         for(let ret of reteteInitiale){
             container.appendChild(ret);
-            ret.style.display = "block";
         }
+        reteteFixate.clear();
+        localStorage.removeItem("reteteFixate");
+        reteteAscunseTemporar.clear();
+
+        document.querySelectorAll(".reteta").forEach(reteta => {
+            reteta.classList.remove("fixa");
+        });
+        document.querySelectorAll(".btn-fixeaza").forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        document.getElementById("mesaj-nu-exista").style.display = "none";
+
+        paginaCurenta = 1;
+        afiseazaPagina(paginaCurenta);
     }
 
     // Butoane de sortare: crescator / descrescator

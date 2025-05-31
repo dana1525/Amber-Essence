@@ -261,17 +261,14 @@ app.get("/fisier", function(req, res, next){
 app.get("/retete", function(req, res){
     // console.log(req.query)
     var conditieQuery=""; 
-
     if(req.query.categ){
         conditieQuery = ` where categorie='${req.query.categ}'`
     }
 
-    queryOptiuni="select * from unnest(enum_range(null::categorie_cocktail))";
+    const queryOptiuni="select * from unnest(enum_range(null::categorie_cocktail))";
     client.query(queryOptiuni, function(err, rezOptiuni){
         // console.log(rezOptiuni)
-
-
-        queryRetete="select * from cocktails" + conditieQuery;
+        const queryRetete=`select * from cocktails${conditieQuery}`;
         client.query(queryRetete, function(err, rez){
             if (err){
                 console.log(err);
@@ -281,7 +278,7 @@ app.get("/retete", function(req, res){
                 res.render("pagini/retete", {retete: rez.rows, optiuni:rezOptiuni.rows, categ: req.query.categ})
             }
         })
-    });
+    })
 })
 
 app.get("/reteta/:id", function(req, res){
