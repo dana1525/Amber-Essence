@@ -37,6 +37,10 @@
                         <div>
                             <table>
                                 <tr>
+                                    <td>Categorie</td>
+                                    <td><span class="categ"><%- locals.ret.categorie %></span></td>
+                                </tr>
+                                <tr>
                                     <td>Timp preparare</td>
                                     <td><span class="timp_prep"><%- locals.ret.timp_prep %> minute</span></td>
                                 </tr>
@@ -76,10 +80,21 @@
                             
                             <figure class="imag-reteta">
                                 <img  src="/resurse/imagini/retete/<%- locals.ret.imagine %>" alt="[imagine <%- locals.ret.nume %>]" />
-                            </figure>    
+                            </figure>
                         </div>
                         
                     </article>
+
+                    <section id="similare">
+                        <h3>Din aceeași categorie</h3>
+                        <div class="similare-container">
+                            <% for(let ret of reteteSimilare) { %>
+                                <a href="/reteta/<%= ret.id %>">
+                                    <p><%= ret.nume %></p>
+                                </a>
+                            </div>
+                        <% } %>
+                    </section>
                 
             </section>
         </main>

@@ -34,6 +34,65 @@ function valideazaInputuri() {
     return valid;
 }
 
+function eliminaDiacritice(text) {
+    // Normalization Form Decomposition (altfel caracterele sunt descompuse in caracter de baza + diacritic special)
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();  // interval de coduri Unicode pentru semne diacritice combinatorii
+}
+
+// Generare dinamica a atributelor
+function genereazaAtributeInputuri(){
+    let volume = [], tarii = [];  //inclusiv duplicate
+    let categorii = new Set(), baze = new Set(), stiluri = new Set();  //doar date unice
+
+    //colectare date din retete
+    Array.from(retete).forEach(ret => {
+        categorii.add(ret.querySelector(".val-categorie").textContent.trim());
+        baze.add(ret.querySelector(".val-baza").textContent.trim());
+        stiluri.add(ret.querySelector(".val-stil").textContent.trim());
+
+        if(ret.dataset.volum) volume.push(+ret.dataset.volum);
+        if(ret.dataset.tarie) tarii.push(+ret.dataset.tarie);
+    });
+    
+    //input textare
+    let textare = document.getElementById("inp-filtru-textarea");
+    
+    //input nume
+    let inpNume = document.getElementById("inp-nume");
+
+    //select pentru categorii
+    let selCategorie = document.getElementById("inp-categorie");
+    selCategorie.innerHTML = '<option value="toate">Toate</option>';
+    [...categorii].sort().forEach(cat => 
+                //////////////////////////////////////////////////////////////////////////////////////////////
+        selCategorie.innerHTML += `<option value="${cat.toLowerCase()}">${cat}</option>`
+    );
+
+    //input cu datalist pentru baza
+    let inpBaza = document.getElementById("inp-baza");
+    let datalist = document.createElement("datalist");
+    datalist.id = "baze-list"; //id pentru elementul nou creat
+    [...baze].forEach(baza => datalist.innerHTML += `<option value="${baza}">`); //populare datalist
+    inpBaza.setAttribute("list", "baze-list"); //conectare input la datalist prin atributul "list"
+    inpBaza.after(datalist);
+
+    //select multiplu pentru stiluri
+    let selStiluri = document.getElementById("inp-servire");
+    selStiluri.innerHTML = "";
+    [...stiluri].sort().forEach(stil => {
+        selStiluri.innerHTML += `<option value="${stil.toLowerCase()}">${stil}</option>`
+    });
+
+    //actualizare pentru checkbox vegan
+    let labelVegan = document.querySelector('label[for="chk-vegan"]');
+    if(labelVegan){
+        let nrVegane = Array.from(retete).filter(ret =>
+            ret.querySelector(".val-vegan")?.textContent.trim() === 'true'
+        ).length;
+        labelVegan.textContent = `Doar vegane (${nrVegane} rețete)`;
+    }
+}
+
 let retete;
 let reteteInitiale;
 
@@ -85,7 +144,7 @@ window.onload = function(){
             let reteta = btn.closest(".reteta");
             let id = reteta.querySelector("a").getAttribute("href").split("/").pop();
 
-            // Adaugaare in set si in sessionStorage
+            // Adaugare in set si in sessionStorage
             reteteStersePermanent.add(id);
             sessionStorage.setItem("reteteStersePermanent", JSON.stringify([...reteteStersePermanent]));
 
@@ -97,6 +156,8 @@ window.onload = function(){
     // Colectare elemente cu clasa reteta
     retete = document.getElementsByClassName("reteta");
     reteteInitiale = Array.from(retete);
+
+    genereazaAtributeInputuri();
 
     // Buton de filtrare
     let reteteFiltrate = [];
@@ -134,7 +195,7 @@ window.onload = function(){
             }
 
             let nume = ret.getElementsByClassName("val-nume")[0].innerHTML.trim().toLowerCase(); //numele fiecarei retete (un vector cu un sg element)
-            let cond1 = inpNume == "" || nume.includes(inpNume)
+            let cond1 = inpNume == "" || eliminaDiacritice(nume).includes(eliminaDiacritice(inpNume));
 
             let areAlcool = ret.querySelector(".val-contine_alcool").textContent.trim().toLowerCase();        
             let cond2 = (inpAlcoolic === "toate") || (inpAlcoolic === areAlcool.trim().toLowerCase());
@@ -156,9 +217,9 @@ window.onload = function(){
                 let stil = ret.dataset.stil ? ret.dataset.stil.toLowerCase() : "";
                 let descriere = ret.dataset.descriere ? ret.dataset.descriere.toLowerCase() : "";
                 
-                let continut_complet = `${nume} ${categorie} ${ingrediente} ${baza} ${stil} ${descriere}`;
+                let continut_complet = eliminaDiacritice(`${nume} ${categorie} ${ingrediente} ${baza} ${stil} ${descriere}`);
                 
-                cond5 = termeni_cautare.every(termen => continut_complet.includes(termen)); //verificare ca sunt inclusi toti termenii
+                cond5 = termeni_cautare.every(termen => continut_complet.includes(eliminaDiacritice(termen))); //verificare ca sunt inclusi toti termenii
             }
 
             let baza = ret.getElementsByClassName("val-baza")[0].innerHTML.trim().toLowerCase();
@@ -385,4 +446,17 @@ window.onload = function(){
             }
         }
     }
+
+    // Trigger automat la schimbarea oricarui filtru (onchange)
+    document.getElementById("inp-nume").addEventListener("input", () => {paginaCurenta = 1; afiseazaPagina(paginaCurenta)});
+    document.querySelectorAll('input[name="gr_rad"]').forEach(radio => {
+        radio.addEventListener("change", () => {paginaCurenta = 1; afiseazaPagina(paginaCurenta)});
+    })
+    document.getElementById("inp-timp_prep").addEventListener("input", () => {paginaCurenta = 1; afiseazaPagina(paginaCurenta)});
+    document.getElementById("inp-categorie").addEventListener("change", () => {paginaCurenta = 1; afiseazaPagina(paginaCurenta)});
+    document.getElementById("inp-filtru-textarea").addEventListener("input", () => {paginaCurenta = 1; afiseazaPagina(paginaCurenta)});
+    document.getElementById("inp-baza").addEventListener("input", () => {paginaCurenta = 1; afiseazaPagina(paginaCurenta)});
+    document.getElementById("inp-servire").addEventListener("change", () => {paginaCurenta = 1; afiseazaPagina(paginaCurenta)});
+    document.getElementById("chk-vegan").addEventListener("change", () => {paginaCurenta = 1; afiseazaPagina(paginaCurenta)});
+
  }

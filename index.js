@@ -293,7 +293,18 @@ app.get("/reteta/:id", function(req, res){
                 afisareEroare(res, 404);
             }
             else{
-                res.render("pagini/reteta", {ret: rez.rows[0]})
+                let reteta = rez.rows[0];
+
+                client.query(
+                    `select * from cocktails where categorie=$1 and id != $2 LIMIT 4`,
+                    [reteta.categorie, reteta.id],
+                    function(err2, rez2){
+                        let reteteSimilare = rez2.rows;
+                        res.render("pagini/reteta",{
+                            ret: reteta, reteteSimilare: reteteSimilare
+                        })
+                    })
+                // res.render("pagini/reteta", {ret: rez.rows[0]})
             }
         }
     })
