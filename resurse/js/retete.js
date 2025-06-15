@@ -39,50 +39,8 @@ function eliminaDiacritice(text) {
     return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();  // interval de coduri Unicode pentru semne diacritice combinatorii
 }
 
-// Generare dinamica a atributelor
+// Generare dinamica checkbox
 function genereazaAtributeInputuri(){
-    let volume = [], tarii = [];  //inclusiv duplicate
-    let categorii = new Set(), baze = new Set(), stiluri = new Set();  //doar date unice
-
-    //colectare date din retete
-    Array.from(retete).forEach(ret => {
-        categorii.add(ret.querySelector(".val-categorie").textContent.trim());
-        baze.add(ret.querySelector(".val-baza").textContent.trim());
-        stiluri.add(ret.querySelector(".val-stil").textContent.trim());
-
-        if(ret.dataset.volum) volume.push(+ret.dataset.volum);
-        if(ret.dataset.tarie) tarii.push(+ret.dataset.tarie);
-    });
-    
-    //input textare
-    let textare = document.getElementById("inp-filtru-textarea");
-    
-    //input nume
-    let inpNume = document.getElementById("inp-nume");
-
-    //select pentru categorii
-    let selCategorie = document.getElementById("inp-categorie");
-    selCategorie.innerHTML = '<option value="toate">Toate</option>';
-    [...categorii].sort().forEach(cat => 
-                //////////////////////////////////////////////////////////////////////////////////////////////
-        selCategorie.innerHTML += `<option value="${cat.toLowerCase()}">${cat}</option>`
-    );
-
-    //input cu datalist pentru baza
-    let inpBaza = document.getElementById("inp-baza");
-    let datalist = document.createElement("datalist");
-    datalist.id = "baze-list"; //id pentru elementul nou creat
-    [...baze].forEach(baza => datalist.innerHTML += `<option value="${baza}">`); //populare datalist
-    inpBaza.setAttribute("list", "baze-list"); //conectare input la datalist prin atributul "list"
-    inpBaza.after(datalist);
-
-    //select multiplu pentru stiluri
-    let selStiluri = document.getElementById("inp-servire");
-    selStiluri.innerHTML = "";
-    [...stiluri].sort().forEach(stil => {
-        selStiluri.innerHTML += `<option value="${stil.toLowerCase()}">${stil}</option>`
-    });
-
     //actualizare pentru checkbox vegan
     let labelVegan = document.querySelector('label[for="chk-vegan"]');
     if(labelVegan){
@@ -91,6 +49,19 @@ function genereazaAtributeInputuri(){
         ).length;
         labelVegan.textContent = `Doar vegane (${nrVegane} rețete)`;
     }
+}
+
+// Cel mai mic timp pentru o categorie
+function celMaiMicTimpCategorie(retete, categorie){
+    const reteteCategorie = retete.filter(
+        ret => ret.querySelector(".val-categorie").textContent.trim().toLowerCase() === categorie
+    );
+    if(reteteCategorie.length === 0) return null;
+    return reteteCategorie.reduce((min, ret) => {
+        const timpCurent = parseFloat(ret.querySelector(".val-timp_prep").textContent.trim());
+        const timpMin = parseFloat(min.querySelector(".val-timp_prep").textContent.trim());
+        return timpCurent < timpMin ? ret : min;
+    })
 }
 
 let retete;
@@ -249,7 +220,7 @@ window.onload = function(){
             }
         }
 
-        // Combinare fixate + filtrate (farr duplicate)
+        // Combinare fixate + filtrate (fara duplicate)
         let toateRetetele = [...new Set([...fixateArr, ...rezultate])];
 
         // Daca nu exista retete
@@ -267,12 +238,32 @@ window.onload = function(){
 
         document.getElementById("paginaCurenta").textContent = paginaCurenta;
 
+        // Stergere markeri existenti 
+        document.querySelectorAll(".marker-timp").forEach(marker => marker.remove());
+        document.querySelectorAll(".cel-mai-mic-timp").forEach(ret => {
+            ret.classList.remove("cel-mai-mic-timp");
+        });
+
         for(let ret of reteteInitiale){
             ret.style.display = "none";
         }
 
         // Filtrare retete actuale
         reteteFiltrate = filtreazaRetete();
+
+        // Cocktail cu cel mai scurt timp din fiecare categorie
+        const categoriiUnice = new Set(
+            Array.from(reteteFiltrate).map(ret => 
+                ret.querySelector(".val-categorie").textContent.trim().toLowerCase()
+            )
+        );
+
+        categoriiUnice.forEach(categorie => {
+            const celMaiMicTimp = celMaiMicTimpCategorie(reteteFiltrate, categorie);
+            if(celMaiMicTimp){
+                celMaiMicTimp.classList.add("cel-mai-mic-timp");
+            }
+        })
 
         // Numar total de pagini
         let nrPagini = Math.ceil(reteteFiltrate.length / retetePePagina);

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <title>Amber & Essence</title>
+        <!-- <link href="/resurse/css/comparare.css" type="text/css" rel="stylesheet" /> -->
+        <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src=/resurse/js/comparare.js></script>
+    </head>
+    <body>
+        <%- include("../fragmente/header") %>    
+
+       <main>
+            <h1>Comparare rețete</h1>
+    
+            <% if (ret && ret.length >= 2) { %>
+            <table class="tabel-comparare">
+                <thead>
+                <tr>
+                    <th>Caracteristică</th>
+                    <th><%= ret[0].nume %></th>
+                    <th><%= ret[1].nume %></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Categorie</td>
+                        <td><%= ret[0].categorie %></td>
+                        <td><%= ret[1].categorie %></td>
+                    </tr>
+                    <tr>
+                        <td>Timp preparare</td>
+                        <td><%= ret[0].timp_prep %></td>
+                        <td><%= ret[1].timp_prep %></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrediente</td>
+                        <td><%= ret[0].ingrediente %></td>
+                        <td><%= ret[1].ingrediente %></td>
+                    </tr>
+                    <tr>
+                        <td>Descriere</td>
+                        <td><%= ret[0].descriere %></td>
+                        <td><%= ret[1].descriere %></td>
+                    </tr>
+                </tbody>
+
+            </table>
+            <% } %>
+        </main>
+        <%- include("../fragmente/footer") %>
+    </body>
+</html>
+
+
+
+
+

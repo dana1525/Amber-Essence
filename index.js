@@ -310,6 +310,23 @@ app.get("/reteta/:id", function(req, res){
     })
 })
 
+app.get("/comparare", function(req, res){
+    let ids = (req.query.ids || "").split(",").map(id => parseInt(id)).filter(id => !isNaN(id)).slice(0,2);
+
+    const query = `select * from cocktails where id = ANY($1::int[])`;
+    
+    client.query(query, [[ids[0], ids[1]]], function(err, rez){
+        
+        const retete = [];
+        for (let id of ids) {
+            const reteta = rez.rows.find(row => row.id === id);
+            if (reteta) {
+                retete.push(reteta);
+            }
+        }
+        res.render("pagini/comparare", {ret: retete});
+    });
+});
 
 
 app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){

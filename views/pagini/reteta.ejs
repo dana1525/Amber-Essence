@@ -5,8 +5,8 @@
         <meta name="keywords" content="cocktail, rețete cocktailuri, mixologie, alcool, mocktail, tehnici preparare, bar acasă, sfaturi mixologie">
         
         <title>Amber & Essence</title>
-        <link href="/resurse/css/reteta.css" type="text/css" rel="stylesheet" />
         <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src=/resurse/js/comparare.js></script>
     </head>
     <body>
 
@@ -30,7 +30,12 @@
             <section>
                 <!-- <h2>Pagină rețetă -->
                     <article id="art-reteta">
-                        <h2><span class="nume"><%- locals.ret.nume %></span></h2>
+                        <h2>
+                            <button class="btn-compara" title="Compară" onclick="adaugaRetetaLaComparare('<%= ret.id %>', '<%= ret.nume%>')">
+                                <i class="fa-solid fa-code-compare"></i>
+                            </button>
+                            <span class="nume"><%- locals.ret.nume %></span>
+                        </h2>
                         <p class="descriere" style="margin-top: 1rem;">
                             <strong><%= locals.ret.descriere %></strong>
                         </p>
@@ -97,6 +102,7 @@
                     </section>
                 
             </section>
+
         </main>
 
         <%- include("../fragmente/footer") %>

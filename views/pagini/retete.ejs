@@ -4,12 +4,12 @@
     <head>
         <meta name="description" content="Cocktailuri. Retete. Mixologie. Tot ce vrei să știi despre mixurile de băuturi!">
         <meta name="keywords" content="cocktail, rețete cocktailuri, mixologie, alcool, mocktail, tehnici preparare, bar acasă, sfaturi mixologie">
-        <link rel="stylesheet" href="/resurse/css/retete.css" type="text/css" />
         
         <title>Amber & Essence</title>
         <%- include("../fragmente/head") %>     
         <script type="text/javascript" src=/resurse/js/retete.js></script>
         <script type="text/javascript" src=/resurse/js/retete-cos.js></script>
+        <script type="text/javascript" src=/resurse/js/comparare.js></script>
     </head>
 
     <body class="retete_css">
@@ -62,8 +62,8 @@
                         <div class="card mb-3">
                             <div class="card-body">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Căutare..." id="inp-filtru-textarea" style="height: 100px"></textarea>
-                                    <label for="inp-filtru-textarea">Căutare avansată</label>
+                                    <textarea class="form-control" placeholder="Căutare avansată" id="inp-filtru-textarea" style="height: 100px"></textarea>
+                                    <label for="inp-filtru-textarea">ex: <%= locals.retete[0].descriere.split(' ')[2] %></label>
                                 </div>
                                 <div class="form-text mt-2">
                                     <small>Caută după: nume, ingrediente, descriere, stil servire.</small>
@@ -78,7 +78,7 @@
                         <div class="card h-100">
                             <div class="card-body">
                                 <label for="inp-nume" class="form-label">Rețetă:</label>
-                                <input type="text" id="inp-nume" class="form-control">
+                                <input type="text" id="inp-nume" class="form-control"  placeholder="ex: <%= locals.retete[0].nume.split(' ') %>">
                             </div>
                         </div>
                     </div>
@@ -90,6 +90,7 @@
                                 <label for="inp-categorie" class="form-label">Categorie:</label>
                                 <select id="inp-categorie" class="form-select">
                                 <option id="sel-toate" selected value="toate">toate</option>
+                                <!-- input dinamic -->
                                 <% for (let opt of locals.optiuni) { %>
                                     <option value="<%- opt.unnest %>"><%- opt.unnest %></option>
                                 <% } %>
@@ -236,6 +237,9 @@
                             <button class="btn-ascunde-temporar" title="Ascunde temporar"><i class="fa-solid fa-x"></i></button>
                             <button class="btn-sterge-permanent" title="Sterge permanent"><i class="fa-regular fa-trash-can"></i></button>
                             
+                            <button class="btn-compara" title="Compară" onclick="adaugaRetetaLaComparare('<%= ret.id %>', '<%= ret.nume%>')">
+                                <i class="fa-solid fa-code-compare"></i>
+                            </button>
                         </div>
 
                         <label class="selecteaza-cos">
