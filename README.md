@@ -65,6 +65,8 @@ sudo -u postgres psql -d amber_essence -f retete_cocktailuri.sql
 
 ### 4. Configure the application
 
+Open `index.js` (or your main server file) and add the PostgreSQL client configuration **at the top of the file**, before using it in any queries:
+
 ```js
 const { Client } = require('pg');
 const client = new Client({
@@ -79,6 +81,9 @@ client.connect()
   .then(() => console.log("Connected to the database"))
   .catch(err => console.error("DB connection error:", err));
 ```
+
+- Make sure to replace `your_password` with the password of the PostgreSQL user.
+- Keep this configuration **before defining routes** or making any database queries.
 
 ### 5. Start the server
 
